@@ -1,2 +1,5 @@
 <!--pages/timer/timer.wxml-->
 <text>pages/timer/timer.wxml</text>
+<button bindtap='onRequest'>start/stop</button>
+<view>显示剩余时间：{{wxTimer}}</view>
+

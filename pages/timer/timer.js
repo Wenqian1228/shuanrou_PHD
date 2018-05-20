@@ -1,13 +1,21 @@
 // pages/timer/timer.js
+var timer = require('wxTimer.js');
+var wxTimer = new timer({
+  beginTime: "00:00:10"
+})
+var reset=1;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    wxTimerList: {}
   },
 
+
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,14 +27,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
@@ -47,7 +55,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    
   },
 
   /**
@@ -62,5 +70,29 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+  
+
+  onRequest: function(){
+
+   
+   if(reset==1){
+     wxTimer.start(this);
+     reset=0;
+   }
+   else if(reset==0){
+     wxTimer.stop(this);
+     reset=1;
+   }
+  },
+
+  
+ 
+
 })
+
+
+
+
+ 
