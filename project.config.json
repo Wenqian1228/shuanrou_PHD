@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.98",
-	"appid": "wxf124d0cde46d4665",
-	"projectname": "ContestProgramUI",
+	"appid": "touristappid",
+	"projectname": "shaunrou_phd",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
