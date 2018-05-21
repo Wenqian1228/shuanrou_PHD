@@ -553,3 +553,13 @@ var organs = [
     "counter": 0
   },
 ]
+
+module.exports={
+  vegetable:veges,
+  meat_eggs:meat_eggs,
+  organs:organs,
+  balls_wahs:balls,
+  soy_fungus:soy_fungus,
+  seafood:seafood,
+  mainfood:mainfood
+}
