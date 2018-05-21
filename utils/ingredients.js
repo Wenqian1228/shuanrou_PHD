@@ -66,13 +66,19 @@ var veges = [
     "counter": 0
   },
   {
-    "name": "冬瓜",
+    "name": "冬瓜片",
+    "time": 60,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "冬瓜块",
     "time": 300,
     "intro": "",
     "counter": 0
   },
   {
-    "name": "萝卜",
+    "name": "白萝卜",
     "time": 180,
     "intro": "",
     "counter": 0
@@ -84,8 +90,14 @@ var veges = [
     "counter": 0
   },
   {
-    "name": "莴笋头",
+    "name": "青笋",
     "time": 300,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "笋尖",
+    "time": 240,
     "intro": "",
     "counter": 0
   },
@@ -96,13 +108,7 @@ var veges = [
     "counter": 0
   },
   {
-    "name": "笋子",
-    "time": 300,
-    "intro": "",
-    "counter": 0
-  },
-  {
-    "name": "花菜",
+    "name": "菜花",
     "time": 180,
     "intro": "",
     "counter": 0
@@ -121,13 +127,31 @@ var veges = [
   },
   {
     "name": "土豆片",
-    "time": 150,
+    "time": 240,
     "intro": "",
     "counter": 0
   },
   {
     "name": "西兰花",
     "time": 180,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "红薯",
+    "time": 240,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "山药",
+    "time": 180,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "玉米",
+    "time": 240,
     "intro": "",
     "counter": 0
   },
@@ -147,8 +171,20 @@ var soy_fungus = [
     "counter": 0
   },
   {
+    "name": "豆腐",
+    "time": 120,
+    "intro": "",
+    "counter": 0
+  },
+  {
     "name": "嫩豆腐块",
     "time": 120,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "冻豆腐",
+    "time": 180,
     "intro": "",
     "counter": 0
   },
@@ -159,13 +195,31 @@ var soy_fungus = [
     "counter": 0
   },
   {
+    "name": "豆腐皮",
+    "time": 120,
+    "intro": "",
+    "counter": 0
+  },
+  {
     "name": "油豆腐",
     "time": 120,
     "intro": "",
     "counter": 0
   },
   {
+    "name": "油豆腐皮",
+    "time": 30,
+    "intro": "",
+    "counter": 0
+  },
+  {
     "name": "豆花",
+    "time": 300,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "腐竹",
     "time": 300,
     "intro": "",
     "counter": 0
@@ -179,13 +233,19 @@ var soy_fungus = [
   },
   {
     "name": "香菇",
-    "time": 180,
+    "time": 300,
     "intro": "",
     "counter": 0
   },
   {
     "name": "金针菇",
-    "time": 600,
+    "time": 240,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "木耳",
+    "time": 180,
     "intro": "",
     "counter": 0
   },
@@ -318,6 +378,36 @@ var mainfood = [
     "intro": "",
     "counter": 0
   },
+  {
+    "name": "红薯粉带",
+    "time": 180,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "宽苕粉",
+    "time": 180,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "魔芋丝",
+    "time": 180,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "年糕",
+    "time": 300,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "水晶粉丝",
+    "time": 120,
+    "intro": "",
+    "counter": 0
+  },
 ]
 
 var meat_eggs = [
@@ -354,6 +444,12 @@ var meat_eggs = [
   {
     "name": "鸭掌",
     "time": 480,
+    "intro": "",
+    "counter": 0
+  },
+  {
+    "name": "无骨凤爪",
+    "time": 900,
     "intro": "",
     "counter": 0
   },
