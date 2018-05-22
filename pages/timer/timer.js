@@ -20,7 +20,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
+    showView: (options.showView == "false" ? false : true)
+  },
+  onChangeShowState: function () {
+    var that = this;
+    that.setData({
+      showView: (!that.data.showView)
+    })
   },
 
   /**
@@ -76,17 +83,25 @@ Page({
 
   onRequest: function(){
 
+
    
    if(reset==1){
      wxTimer.start(this);
+      
      reset=0;
    }
    else if(reset==0){
      wxTimer.stop(this);
+     
      reset=1;
    }
+
+
+
+   
   },
 
+  
   
  
 

@@ -1,5 +1,9 @@
 <!--pages/timer/timer.wxml-->
 <text>pages/timer/timer.wxml</text>
+
+ <button  class="hide{{showView?'show':''}}" bindtap="onChangeShowState">{{showView?'hide':'add new'}}</button>
+  
+  <button class="hide{{showView?'':'show'}}" bindtap="onChangeShowState">{{showView?'hide':'add new'}}</button>
 <button bindtap='onRequest'>start/stop</button>
-<view>显示剩余时间：{{wxTimer}}</view>
+<view class="hide{{showView?'show':''}}">显示剩余时间：{{wxTimer}}</view>
 
