@@ -1,13 +1,14 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <text>推荐菜品</text>
+  <view class="button-sp-area">
+    <view class="one-line" wx:for='{{recommendation}}'>
+      <button class='weui-btn btn-width' type='default' plain="true">{{item}}</button>
+    </view>
   </view>
-  <view class="usermotto">
-    <text>{{motto}}</text>
-  </view>
+</view>
+<view class="container">
+  <view class="one-line" wx:for='{{recommendation}}'>
+      <button class='weui-btn btn-width' type='default' plain="true">{{item}}</button>
+    </view>
 </view>

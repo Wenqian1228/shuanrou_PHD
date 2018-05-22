@@ -1,9 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/logs/logs",
     "pages/ingredients/ingredients",
-    "pages/timer/timer",
-    "pages/logs/logs"
+    "pages/timer/timer"
   ],
   "window":{
     "backgroundTextStyle":"light",

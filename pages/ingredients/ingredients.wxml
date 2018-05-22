@@ -1,3 +1,6 @@
 <view wx:for='{{recommendation}}'>
   <button class='weui-btn' type='default'>{{item}}</button>
 </view>
+<view>
+  
+</view>
