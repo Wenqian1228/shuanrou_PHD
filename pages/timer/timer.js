@@ -1,9 +1,22 @@
 // pages/timer/timer.js
 var timer = require('wxTimer.js');
-var wxTimer = new timer({
-  beginTime: "00:00:10"
+var wxTimer_bxsc = new timer({
+  beginTime: "00:01:00",
+  name: 'wxTimer_bxsc',
 })
-var reset=1;
+var reset_bxsc=1;
+
+var wxTimer_bc = new timer({
+  beginTime: "00:01:10",
+  name: 'wxTimer_bc',
+})
+var reset_bc = 1;
+
+var wxTimer_dbc = new timer({
+  beginTime: "00:02:00",
+  name: 'wxTimer_dbc',
+})
+var reset_dbc = 1;
 
 Page({
 
@@ -11,7 +24,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    wxTimerList: {}
+    wxTimerList: {
+     
+    }
   },
 
 
@@ -21,12 +36,36 @@ Page({
    */
   onLoad: function (options) {
 
-    showView: (options.showView == "false" ? false : true)
+    showView_bxsc: (options.showView_bxsc == "false" ? false : true)
+    
+    showView_bc: (options.showView_bc == "false" ? false : true)
+    showView_dbc: (options.showView_dbc == "false" ? false : true)
   },
-  onChangeShowState: function () {
+
+
+  onChangeShowState_bxsc: function () {
     var that = this;
     that.setData({
-      showView: (!that.data.showView)
+      
+      showView_bxsc: (!that.data.showView_bxsc)
+      
+    })
+    if (!that.data.showView_bxsc){
+      wxTimer_bxsc.stop(this);
+     
+      reset_bxsc = 1;
+    }
+  },
+  onChangeShowState_bc: function () {
+    var that = this;
+    that.setData({
+      showView_bc: (!that.data.showView_bc)
+    })
+  },
+  onChangeShowState_dbc: function () {
+    var that = this;
+    that.setData({
+      showView_dbc: (!that.data.showView_dbc)
     })
   },
 
@@ -80,26 +119,54 @@ Page({
   },
 
   
+//包心生菜
+  onRequest_bxsc: function(){
+    
+    if (reset_bxsc==1){
+      wxTimer_bxsc.start(this);
 
-  onRequest: function(){
 
-
-   
-   if(reset==1){
-     wxTimer.start(this);
-      
-     reset=0;
-   }
-   else if(reset==0){
-     wxTimer.stop(this);
+     reset_bxsc=0;
      
-     reset=1;
    }
-
-
-
-   
+    else if (reset_bxsc==0){
+      wxTimer_bxsc.stop(this);
+ 
+      reset_bxsc=1;
+   }  
   },
+
+  //菠菜
+  onRequest_bc: function () {
+    if (reset_bc == 1) {
+      wxTimer_bc.start(this);
+
+      reset_bc = 0;
+
+    }
+    else if (reset_bc == 0) {
+      wxTimer_bc.stop(this);
+
+      reset_bc = 1;
+    }
+  },
+
+  //大白菜
+  onRequest_dbc: function () {
+    if (reset_dbc == 1) {
+      wxTimer_dbc.start(this);
+
+      reset_dbc = 0;
+
+    }
+    else if (reset_dbc == 0) {
+      wxTimer_dbc.stop(this);
+
+      reset_dbc = 1;
+    }
+  },
+
+
 
   
   

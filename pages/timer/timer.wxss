@@ -5,6 +5,9 @@
 .show{ 
  display: block;
 }
+
+
+
 #timer1 {
     width: 100%;
     padding: 50px 0;

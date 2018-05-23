@@ -1,9 +1,24 @@
 <!--pages/timer/timer.wxml-->
-<text>pages/timer/timer.wxml</text>
+<text>计时器</text>
 
- <button  class="hide{{showView?'show':''}}" bindtap="onChangeShowState">{{showView?'hide':'add new'}}</button>
+
+<!--包心生菜-->
+ <button  class="hide{{showView_bxsc?'show':''}}" bindtap="onChangeShowState_bxsc">{{showView_bxsc?'delete 包心生菜':'add 包心生菜'}}</button>
   
-  <button class="hide{{showView?'':'show'}}" bindtap="onChangeShowState">{{showView?'hide':'add new'}}</button>
-<button bindtap='onRequest'>start/stop</button>
-<view class="hide{{showView?'show':''}}">显示剩余时间：{{wxTimer}}</view>
+  <button class="hide{{showView_bxsc?'':'show'}}" bindtap="onChangeShowState_bxsc">{{showView_bxsc?'delete 包心生菜':'add 包心生菜'}}</button>
+
+<button bindtap='onRequest_bxsc' class="hide{{(showView_bxsc)?'show':''}}">start/stop<view >包心生菜：{{wxTimerList['wxTimer_bxsc'].wxTimer}}</view></button>
+
+
+<!--菠菜-->
+<button  class="hide{{showView_bc?'show':''}}" bindtap="onChangeShowState_bc">{{showView_bc?'delete 菠菜':'add 菠菜'}}</button>
+  
+  <button class="hide{{showView_bc?'':'show'}}" bindtap="onChangeShowState_bc">{{showView_bc?'delete 菠菜':'add 菠菜'}}</button>
+<button bindtap='onRequest_bc' class="hide{{showView_bc?'show':''}}">start/stop<view >菠菜：<view>{{wxTimerList['wxTimer_bc'].wxTimer}}</view></view></button>
+
+<!--大白菜-->
+<button  class="hide{{showView_dbc?'show':''}}" bindtap="onChangeShowState_dbc">{{showView_dbc?'delete 大白菜':'add 大白菜'}}</button>
+  
+  <button class="hide{{showView_dbc?'':'show'}}" bindtap="onChangeShowState_dbc">{{showView_dbc?'delete 大白菜':'add 大白菜'}}</button>
+<button bindtap='onRequest_dbc' class="hide{{showView_dbc?'show':''}}">start/stop<view >菠菜：<view>{{wxTimerList['wxTimer_dbc'].wxTimer}}</view></view></button>
 
