@@ -7,18 +7,26 @@
   
   <button class="hide{{showView_bxsc?'':'show'}}" bindtap="onChangeShowState_bxsc">{{showView_bxsc?'delete 包心生菜':'add 包心生菜'}}</button>
 
-<button bindtap='onRequest_bxsc' class="hide{{(showView_bxsc)?'show':''}}">start/stop<view >包心生菜：{{wxTimerList['wxTimer_bxsc'].wxTimer}}</view></button>
+<button bindtap='onRequest_bxsc' class="hide{{(showView_bxsc&&counting_bxsc)?'show':''}}">下锅/复位<view >包心生菜：{{wxTimerList['wxTimer_bxsc'].wxTimer}}</view> </button>
+
+<button bindtap='onRequest_bxsc' class="hide{{(showView_bxsc&&!counting_bxsc)?'show':''}}">下锅/复位<view >包心生菜：00:01:00</view></button>
 
 
 <!--菠菜-->
-<button  class="hide{{showView_bc?'show':''}}" bindtap="onChangeShowState_bc">{{showView_bc?'delete 菠菜':'add 菠菜'}}</button>
+ <button  class="hide{{showView_bc?'show':''}}" bindtap="onChangeShowState_bc">{{showView_bc?'delete 菠菜':'add 菠菜'}}</button>
   
   <button class="hide{{showView_bc?'':'show'}}" bindtap="onChangeShowState_bc">{{showView_bc?'delete 菠菜':'add 菠菜'}}</button>
-<button bindtap='onRequest_bc' class="hide{{showView_bc?'show':''}}">start/stop<view >菠菜：<view>{{wxTimerList['wxTimer_bc'].wxTimer}}</view></view></button>
+
+<button bindtap='onRequest_bc' class="hide{{(showView_bc&&counting_bc)?'show':''}}">下锅/复位<view >菠菜：{{wxTimerList['wxTimer_bc'].wxTimer}}</view></button>
+
+<button bindtap='onRequest_bc' class="hide{{(showView_bc&&!counting_bc)?'show':''}}">下锅/复位<view >菠菜：00:01:00</view></button>
 
 <!--大白菜-->
 <button  class="hide{{showView_dbc?'show':''}}" bindtap="onChangeShowState_dbc">{{showView_dbc?'delete 大白菜':'add 大白菜'}}</button>
   
   <button class="hide{{showView_dbc?'':'show'}}" bindtap="onChangeShowState_dbc">{{showView_dbc?'delete 大白菜':'add 大白菜'}}</button>
-<button bindtap='onRequest_dbc' class="hide{{showView_dbc?'show':''}}">start/stop<view >菠菜：<view>{{wxTimerList['wxTimer_dbc'].wxTimer}}</view></view></button>
+
+<button bindtap='onRequest_dbc' class="hide{{(showView_dbc&&counting_dbc)?'show':''}}">下锅/复位<view >大白菜：{{wxTimerList['wxTimer_dbc'].wxTimer}}</view></button>
+
+<button bindtap='onRequest_dbc' class="hide{{(showView_dbc&&!counting_dbc)?'show':''}}">下锅/复位<view >大白菜：00:02:00</view></button>
 
