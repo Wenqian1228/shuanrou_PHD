@@ -2,7 +2,7 @@
 <view class="container">
   <text>推荐菜品</text>
   <view class="button-sp-area">
-    <view class="one-line" wx:for='{{recommendation}}' wx:key="*this">
+    <view class="one-line" wx:for='{{recommendation}}' wx:key='property'> 
       <button class='weui-btn btn-width' type='default' plain="true">{{item}}</button>
     </view>
   </view>
@@ -17,8 +17,9 @@
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
             <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
-              <navigator url="{{page}}/{{page}}" class="weui-cell weui-cell_access">
+              <navigator url='../ingredients/ingredients?title={{page.name}}' open-type='switchTab' class="weui-cell weui-cell_access">
                <view class="weui-cell__bd">{{page.name}}</view>
+               <button bindtap='navigateToInfo'>⏲</button>
                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
               </navigator>
             </block>
@@ -28,7 +29,7 @@
     </block>
   </view>
 </view>
-<view class="container">
+<!-- <view class="container">
   <view class="page__bd_spacing" wx:for='{{kinds}}' wx:key="*this">
       <button class='weui-btn' type='primary' bindtap='kindToggle'>{{item}}</button>
   </view>
@@ -42,4 +43,4 @@
         </block>
     </view>
   </view>
-</view>
+</view> -->

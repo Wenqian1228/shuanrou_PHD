@@ -72,5 +72,11 @@ Page({
     this.setData({
       list: list
     });
+  },
+  navigateToInfo: function(e){
+    console.log(e);
+    wx.switchTab({
+      url: '../timer/timer',
+    })
   }
 })

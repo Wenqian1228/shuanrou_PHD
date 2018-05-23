@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
     "pages/ingredients/ingredients",
+    "pages/logs/logs",
     "pages/timer/timer"
   ],
   "window":{
