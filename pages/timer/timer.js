@@ -1,8 +1,13 @@
 // pages/timer/timer.js
+//here are LIU hard code
+var obj = {
+  time: '00:01:00',
+  name: '泥鳅'
+}
 var timer = require('wxTimer.js');
 var wxTimer_bxsc = new timer({
   beginTime: "00:01:00",
-  name: 'wxTimer_bxsc',
+  name: 'wxTimer_bxsc'
 })
 var reset_bxsc=1;
 
@@ -26,16 +31,30 @@ Page({
   data: {
     wxTimerList: {
      
-    }
+    },
+    timers:[]
   },
 
-
-  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // LIU HARD CODE
+    time: obj.time
+    name: obj.name
+    var newTimer = new timer({
+      beginTime: obj.time,
+      name: obj.name,
+      reset: 1,
+      showView: false,
+      counting: false
+    });
+    this.data.timers[0] = newTimer;
+    this.setData({
+      timers: this.data.timers
+    });
+    console.log(this.data.timers);
+    // liu
     showView_bxsc: (options.showView_bxsc == "false" ? false : true)
     counting_bxsc: (options.counting_bxsc == "false" ? false : true)
     showView_bc: (options.showView_bc == "false" ? false : true)
@@ -44,7 +63,12 @@ Page({
     counting_dbc: (options.counting_bxsc == "false" ? false : true)
   },
 
+  START: function(){
 
+  },
+  END: function(){
+
+  },
   onChangeShowState_bxsc: function () {
     var that = this;
     that.setData({

@@ -30,3 +30,13 @@
 
 <button bindtap='onRequest_dbc' class="hide{{(showView_dbc&&!counting_dbc)?'show':''}}">下锅/复位<view >大白菜：00:02:00</view></button>
 
+<view>Hard Code</view>
+
+<block wx:for="{{timers}}" wx:key="*this">
+  <button class="hide{{item.showView?'':'show'}}">{{item.name}}</button>
+
+  <button bindtap='START' class="hide{{(item.counting)?'show':''}}">下锅/复位<view >{{item.name}}：{{wxTimerList['wxTimer_dbc'].wxTimer}}</view></button>
+
+  <button bindtap='END' class="hide{{(!item.counting)?'show':''}}">下锅/复位<view >{{item.name}}：{{item.beginTime}}</view></button>
+</block>
+
