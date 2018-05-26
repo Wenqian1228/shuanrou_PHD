@@ -18,9 +18,9 @@
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
             <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
               <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}' open-type='navigate' class="weui-cell weui-cell_access">
-               <view class="weui-cell__bd">{{page.name}}</view>
+                <view class="weui-cell__bd">{{page.name}}</view>
                 <!-- <navigator url = '../timer/timer?name={{page.name}}&time={{page.time}}' open-type='switchTab'>⏲</navigator>  -->
-                 <button checked data-name="{{page.name}}" data-time="{{page.time}}" bindtap='navigateTotimer'>⏲</button>
+                <button checked data-name="{{page.name}}" data-time="{{page.time}}" catchtap='navigateTotimer'>⏲</button>
                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
               </navigator>
             </block>

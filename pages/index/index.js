@@ -1,6 +1,6 @@
 //获取应用实例
-const app = getApp()
-var utils = require('../../utils/ingredients.js')
+const app = getApp();
+var utils = require('../../utils/ingredients.js');
 
 Page({
   data: {
@@ -74,9 +74,27 @@ Page({
     });
   },
   navigateTotimer: function(e){
-    // console.log(e.currentTarget.dataset);
+    console.log(e.currentTarget.dataset);
+    var name = e.currentTarget.dataset.name;
+    var time = e.currentTarget.dataset.time;
+    var seconds = time % 60;
+    var min = Math.floor(time / 60);
+    var hour = Math.floor(min / 60);
+    min = min % 60;
+    seconds = ("0" + seconds).slice(-2);
+    min = ("0" + min).slice(-2);
+    hour = ("0" + hour).slice(-2);
+    var formatTime = hour + ":" + min + ":" + seconds;
+    var timer={
+      beginTime: formatTime,
+      name: name
+    }
+    console.log(timer);
+    // var openid = app.globalData.open_id;
+    // console.log(openid);
     // console.log(app.globalData.timer_list);
-    // app.globalData.timer_list.concat(e.currentTarget.dataset);
+    getApp().globalData.timer_list.push(timer);
+    console.log(app.globalData.timer_list);
     wx.switchTab({
       url: '../timer/timer',
     })
