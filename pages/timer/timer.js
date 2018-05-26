@@ -148,7 +148,37 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    var app = getApp();
+    var that = this;
+    console.log("onShow function");
+    console.log(app.globalData.timer_list);
+    var arrayLength = app.globalData.timer_list.length;
+
+    for (var i = 0; i < arrayLength; i++){
+      var obj = app.globalData.timer_list[i];
+      var name = obj.name;
+      var time = obj.beginTime;
+      console.log(name, time);
+
+      var newTimer = new timer({
+        beginTime: time,
+        name: name
+      })
+      var myTimer = {
+        name: name,
+        time: time,
+        created: true,
+        started: false,
+        timer: newTimer
+      }
+
+      timerList[name] = myTimer;
+    }
+
+    app.globalData.timer_list = [];
+    that.setData({
+      timerList: timerList,
+    })
   },
 
   /**
@@ -290,7 +320,7 @@ Page({
     if (timerList[name].started == false){
       timerList[name].timer.start(this);
       timerList[name].started = true;
-    }else if(timerList[name].started == true){
+    } else if (timerList[name].started == true){
       timerList[name].timer.stop(this);
       timerList[name].started = false;
     }
@@ -308,7 +338,7 @@ Page({
     timerList[name].timer.stop(this);
     console.log("Delete ", name);
     that.setData({
-      timerList:timerList
+      timerList: timerList
     })
   }
  
