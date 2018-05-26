@@ -74,9 +74,9 @@ Page({
     });
   },
   navigateTotimer: function(e){
-    console.log(e.currentTarget.dataset);
-    console.log(app.globalData.timer_list);
-    app.globalData.timer_list.concat(e.currentTarget.dataset);
+    // console.log(e.currentTarget.dataset);
+    // console.log(app.globalData.timer_list);
+    // app.globalData.timer_list.concat(e.currentTarget.dataset);
     wx.switchTab({
       url: '../timer/timer',
     })
