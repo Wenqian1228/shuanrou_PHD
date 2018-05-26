@@ -40,3 +40,11 @@
   <button bindtap='END' class="hide{{(!item.counting)?'show':''}}">下锅/复位<view >{{item.name}}：{{item.beginTime}}</view></button>
 </block>
 
+
+<view>Muzi</view>
+
+<view wx:for = "{{data.vegetable}}" wx:key = "item">
+<button data-name='{{item.name}}' data-time='{{item.time}}' bind:tap='createTimer'>create new {{item.name}} timer</button>
+<button wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bind:longpress='deleteTimer'>{{item.name}}: {{timerList[item.name].time}}</button>
+<button wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bind:longpress='deleteTimer'>{{item.name}}: {{wxTimerList[item.name].wxTimer}}</button>
+</view>

@@ -23,16 +23,21 @@ var wxTimer_dbc = new timer({
 })
 var reset_dbc = 1;
 
+//Muzi
+var ingredient_data = require('../../utils/ingredients.js');
+var timerList = {};
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    wxTimerList: {
-     
-    },
-    timers:[]
+    wxTimerList: {},
+    timers:[],
+    //Muzi
+    data:ingredient_data,
+    timerList: timerList
   },
 
   /**
@@ -248,10 +253,62 @@ Page({
     }
   },
 
+  //Muzi
+  createTimer: function(event){
+    console.log(event);
+    var that = this;
+    var name = event.currentTarget.dataset.name;
+    var time = event.currentTarget.dataset.time;
+    var date = new Date(null);
+    date.setSeconds(time);
+    var formattedTime = date.toISOString().substr(11, 8);
+    
+    var newTimer = new timer({
+      beginTime: formattedTime,
+      name: name
+    })
+    
+    var myTimer = {
+      name: name,
+      time: formattedTime,
+      created: true,
+      started: false,
+      timer: newTimer
+    }
 
+    timerList[name] = myTimer;
+    that.setData({
+      timerList: timerList,
+    })
+  },
 
+  changeTimerState: function(event){
+    var that = this;
+    var name = event.currentTarget.dataset.name;
+    var time = timerList[name].time;
+
+    if (timerList[name].started == false){
+      timerList[name].timer.start(this);
+      timerList[name].started = true;
+    }else if(timerList[name].started == true){
+      timerList[name].timer.stop(this);
+      timerList[name].started = false;
+    }
+
+    that.setData({
+      timerList: timerList
+    })
+  },
   
-  
+  deleteTimer: function(event){
+    var that = this;
+    var name = event.currentTarget.dataset.name;
+    timerList[name].created = false;
+    console.log("Delete ", name);
+    that.setData({
+      timerList:timerList
+    })
+  }
  
 
 })
