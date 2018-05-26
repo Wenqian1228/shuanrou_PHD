@@ -304,6 +304,7 @@ Page({
     var that = this;
     var name = event.currentTarget.dataset.name;
     timerList[name].created = false;
+    timerList[name].started = false;
     console.log("Delete ", name);
     that.setData({
       timerList:timerList
