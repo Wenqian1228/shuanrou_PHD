@@ -1,27 +1,11 @@
 // pages/timer/timer.js
 //here are LIU hard code
-var obj = {
-  time: '00:01:00',
-  name: '泥鳅'
-}
+
 var timer = require('wxTimer.js');
-var wxTimer_bxsc = new timer({
-  beginTime: "00:01:00",
-  name: 'wxTimer_bxsc'
-})
-var reset_bxsc=1;
 
-var wxTimer_bc = new timer({
-  beginTime: "00:01:00",
-  name: 'wxTimer_bc',
-})
-var reset_bc = 1;
 
-var wxTimer_dbc = new timer({
-  beginTime: "00:02:00",
-  name: 'wxTimer_dbc',
-})
-var reset_dbc = 1;
+
+
 
 //Muzi
 var ingredient_data = require('../../utils/ingredients.js');
@@ -35,6 +19,9 @@ Page({
   data: {
     wxTimerList: {},
     timers:[],
+    touchStartTime: 0,
+    touchEndTime: 0,  
+    lastTapTime: 0, 
     //Muzi
     data:ingredient_data,
     timerList: timerList
@@ -81,61 +68,14 @@ Page({
   END: function(){
 
   },
-  onChangeShowState_bxsc: function () {
-    var that = this;
-    that.setData({
-      
-      showView_bxsc: (!that.data.showView_bxsc)
-      
-    })
-    if (!that.data.showView_bxsc){
-      wxTimer_bxsc.stop(this);
-      
-      that.setData({
 
-        counting_bxsc: false
-
-      })
-      reset_bxsc = 1;
-    }
+  touchStart: function (e) {
+    this.touchStartTime = e.timeStamp
   },
-  onChangeShowState_bc: function () {
-    var that = this;
-    that.setData({
-
-      showView_bc: (!that.data.showView_bc)
-
-    })
-    if (!that.data.showView_bc) {
-      wxTimer_bc.stop(this);
-
-      that.setData({
-
-        counting_bc: false
-
-      })
-      reset_bc = 1;
-    }
+  touchEnd: function (e) {
+    this.touchEndTime = e.timeStamp
   },
- 
-  onChangeShowState_dbc: function () {
-    var that = this;
-    that.setData({
-
-      showView_dbc: (!that.data.showView_dbc)
-
-    })
-    if (!that.data.showView_dbc) {
-      wxTimer_dbc.stop(this);
-
-      that.setData({
-
-        counting_dbc: false
-
-      })
-      reset_dbc = 1;
-    }
-  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -330,16 +270,35 @@ Page({
     })
   },
   
+
+ 
   deleteTimer: function(event){
     var that = this;
     var name = event.currentTarget.dataset.name;
-    timerList[name].created = false;
-    timerList[name].started = false;
-    timerList[name].timer.stop(this);
-    console.log("Delete ", name);
-    that.setData({
-      timerList: timerList
+    wx.showModal({ //使用模态框提示用户进行操作
+
+      title: '删除菜品',
+
+      content: '您确定要将'+name+"从您的菜品计时器中删除？",
+
+      success: function (res) {
+
+        if (res.confirm) { //判断用户是否点击了确定
+         
+          timerList[name].created = false;
+          timerList[name].started = false;
+          timerList[name].timer.stop(this);
+          console.log("Delete ", name);
+          that.setData({
+            timerList: timerList
+          })
+
+        }
+
+      }
+
     })
+   
   }
  
 
