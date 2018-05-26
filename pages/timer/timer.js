@@ -40,13 +40,20 @@ Page({
    */
   onLoad: function (options) {
     // LIU HARD CODE
-    time: obj.time
-    name: obj.name
+    console.log(options);
+    var seconds = options.time%60;
+    var min = options.time / 60;
+    var hour = min/60;
+    min = min % 60;
+    seconds =  ("0" + seconds).slice(-2);
+    min = ("0" + min).slice(-2);
+    hour = ("0" + hour).slice(-2);
+    var formatTime = hour +":"+ min+":"+seconds;
+
     var newTimer = new timer({
-      beginTime: obj.time,
-      name: obj.name,
+      beginTime: formatTime,
+      name: options.name,
       reset: 1,
-      showView: false,
       counting: false
     });
     this.data.timers[0] = newTimer;

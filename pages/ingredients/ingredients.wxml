@@ -1,6 +1,7 @@
-<view wx:for='{{recommendation}}'>
-  <button class='weui-btn' type='default'>{{item}}</button>
+<view>
+  {{name}}
 </view>
 <view>
-  
+  {{intro}}
 </view>
+<view>图片</view>

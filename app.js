@@ -1,5 +1,9 @@
 //app.js
 App({
+  globalData: {
+    timer_list: [],
+    open_id: '火锅博士'
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

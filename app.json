@@ -19,11 +19,6 @@
         "selectedIconPath": "images/tab/index_sel.png"
       },
       {
-        "pagePath": "pages/ingredients/ingredients",
-        "iconPath": "images/tab/ingr.png",
-        "selectedIconPath": "images/tab/ingr_sel.png"
-      },
-      {
         "pagePath": "pages/timer/timer",
         "iconPath": "images/tab/timer.png",
         "selectedIconPath": "images/tab/timer_sel.png"

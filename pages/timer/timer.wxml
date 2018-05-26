@@ -33,7 +33,7 @@
 <view>Hard Code</view>
 
 <block wx:for="{{timers}}" wx:key="*this">
-  <button class="hide{{item.showView?'':'show'}}">{{item.name}}</button>
+  <button>{{item.name}}</button>
 
   <button bindtap='START' class="hide{{(item.counting)?'show':''}}">下锅/复位<view >{{item.name}}：{{wxTimerList['wxTimer_dbc'].wxTimer}}</view></button>
 
