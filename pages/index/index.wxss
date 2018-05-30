@@ -1,4 +1,11 @@
 /**index.wxss**/
+@font-face{
+  font-family: 'shout';
+  src: url('http://webpagepublicity.com/free-fonts/x/Xanadu.ttf');
+}
+.button{
+  font-family: shout;
+}
 .button-sp-area{
     margin: 0 auto;
     padding-top: 15px;

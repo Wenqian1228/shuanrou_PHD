@@ -5,7 +5,7 @@ var utils = require('../../utils/ingredients.js');
 Page({
   data: {
     kinds: ['肉、蛋类','蔬菜类','内脏类','丸、滑类','豆、菌类','海产类','主食类'],
-    recommendation: ['rec1', 'rec2', 'rec3', 'rec4', 'rec1', 'rec2'],
+    recommendation: ['包心生菜', '牛肉', '羊肉', '大白菜', '豆苗', '菠菜'],
     meat: utils.meat_eggs,
     vegetable: utils.vegetable,
     organs: utils.organs,

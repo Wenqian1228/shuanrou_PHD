@@ -1,47 +1,34 @@
 <!--index.wxml-->
 <view class="container">
-  <text>推荐菜品</text>
   <view class="button-sp-area">
-    <view class="one-line" wx:for='{{recommendation}}' wx:key='property'> 
-      <button class='weui-btn btn-width' type='default' plain="true">{{item}}</button>
+    <view class="one-line" wx:for='{{recommendation}}' wx:key='property' style='font-family:shout'> 
+      <button class='weui-btn btn-width our-flex-w' type='default' plain="true">
+        <image src='../../images/buttons/flame.png' class='our-iconimg'></image>
+        <image src='../../images/ingredients/{{item}}.png' class='our-iconingr'></image>
+      </button>
     </view>
   </view>
 </view>
-<view class="page__bd page__bd_spacing">
+
+<view class="page__bd page__bd_spacing" style='padding-top: 50rpx'>
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
       <view class="kind-list__item">
-        <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-          <view class="weui-flex__item">{{item.name}}</view>
+        <view id="{{item.id}}" style='height:50rpx' class="our-flex-w kind-list__item-hd" bindtap="kindToggle">
+          <image class="our-pictext" mode="center" src="../../images/buttons/{{item.name}}.png"></image> 
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
-              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}' open-type='navigate' class="weui-cell weui-cell_access">
+            <view wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this" class='our-dropdown'>
+              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}' class="weui-cell weui-cell_access">
                 <view class="weui-cell__bd">{{page.name}}</view>
-                <!-- <navigator url = '../timer/timer?name={{page.name}}&time={{page.time}}' open-type='switchTab'>⏲</navigator>  -->
                 <button checked data-name="{{page.name}}" data-time="{{page.time}}" catchtap='navigateTotimer'>⏲</button>
                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
               </navigator>
-            </block>
+            </view>
           </view>
         </view>
       </view>
     </block>
   </view>
 </view>
-<!-- <view class="container">
-  <view class="page__bd_spacing" wx:for='{{kinds}}' wx:key="*this">
-      <button class='weui-btn' type='primary' bindtap='kindToggle'>{{item}}</button>
-  </view>
-  <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-    <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-        <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
-            <navigator url="{{page}}/{{page}}" class="weui-cell weui-cell_access">
-                <view class="weui-cell__bd">{{page}}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-        </block>
-    </view>
-  </view>
-</view> -->

@@ -1,11 +1,9 @@
 <!--pages/timer/timer.wxml-->
 <text>计时器</text>
 
-
-<view>Muzi</view>
-
-<view wx:for = "{{data.vegetable}}" wx:key = "item">
-
+<view wx:for = "{{data}}">
+<view wx:for = "{{item}}">
 <button wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer'>{{item.name}}: {{timerList[item.name].time}}</button>
 <button wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer'>{{item.name}}: {{wxTimerList[item.name].wxTimer}}</button>
+</view>
 </view>
