@@ -15,7 +15,7 @@
     <block wx:for="{{list}}" wx:key="id">
       <view class="kind-list__item">
         <view id="{{item.id}}" style='height:50rpx' class="our-flex-w kind-list__item-hd" bindtap="kindToggle">
-          <image class="our-pictext" mode="center" src="../../images/buttons/{{item.name}}.png"></image> 
+          <image class="our-pictext" mode="center" src="../../images/buttons/{{item.name}}.png"></image>
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
