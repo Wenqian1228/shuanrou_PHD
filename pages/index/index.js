@@ -58,6 +58,9 @@ Page({
       }
     ]
   },
+  onLoad: function () {
+    var i=0;
+  },
   
   kindToggle: function (e) {
     console.log("drop-down");
@@ -74,7 +77,8 @@ Page({
     });
   },
   navigateTotimer: function(e){
-    console.log(e.currentTarget.dataset);
+    var count = 0;
+    //console.log(e.currentTarget.dataset);
     var name = e.currentTarget.dataset.name;
     var time = e.currentTarget.dataset.time;
     var seconds = time % 60;
@@ -89,12 +93,34 @@ Page({
       beginTime: formatTime,
       name: name
     }
-    console.log(timer);
-    // var openid = app.globalData.open_id;
-    // console.log(openid);
+    //console.log(timer);
     // console.log(app.globalData.timer_list);
     getApp().globalData.timer_list.push(timer);
-    console.log(app.globalData.timer_list);
+    //console.log(app.globalData.timer_list);
+    //setstorage
+    var that = this;
+    wx.getStorage({
+      key: name,
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          storageContent: res.data
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
+    wx.setStorage({
+      key: name,
+      data: that.data.storageContent+1,
+      success: function(res){
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
     wx.switchTab({
       url: '../timer/timer',
     })
