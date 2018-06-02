@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="button-sp-area">
-    <view class="one-line" wx:for='{{recommendation}}' wx:key='property' style='font-family:shout'> 
+    <view class="one-line" wx:for='{{recommendation}}' wx:key='property'> 
       <button class='weui-btn btn-width our-flex-w' type='default' plain="true">
         <image src='../../images/buttons/flame.png' class='our-iconimg'></image>
         <image src='../../images/ingredients/{{item}}.png' class='our-iconingr'></image>
@@ -15,7 +15,7 @@
     <block wx:for="{{list}}" wx:key="id">
       <view class="kind-list__item">
         <view id="{{item.id}}" style='height:50rpx' class="our-flex-w kind-list__item-hd" bindtap="kindToggle">
-          <image class="our-pictext" mode="center" src="../../images/buttons/{{item.name}}.png"></image>
+          <text class='our-title'>{{item.name}}</text>
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
