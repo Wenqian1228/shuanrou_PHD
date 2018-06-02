@@ -1,5 +1,9 @@
 @import 'style/weui.wxss';
 
+@font-face{
+  font-family: 'shout';
+  src: url('http://p9nhk4zv9.bkt.clouddn.com/%E6%96%B9%E6%AD%A3%E5%91%90%E5%96%8A%E4%BD%93.TTF');
+}
 page{
     background-color: #c02722;
     font-size: 16px;

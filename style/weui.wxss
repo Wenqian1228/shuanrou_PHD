@@ -7,6 +7,7 @@ page{line-height:1.6;font-family:-apple-system-font,Helvetica Neue,sans-serif}ic
 
 
 .our-pictext{width: 500rpx; height: 100rpx;}
+.our-title{font-family: 'shout'; font-size: 80rpx}
 .our-iconimg{width: 15px; height: 15px}
 .our-iconingr{width: 45px; height: 45px}
 .our-flex__item{-webkit-box-flex:1;-webkit-flex:1;flex:1}
