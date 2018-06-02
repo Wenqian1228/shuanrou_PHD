@@ -1,7 +1,10 @@
-<view>
+<view class="name">
   {{name}}
 </view>
-<view>
-  {{intro}}
+ 
+<view  class="intro" ><view class="valid">
+  {{intro}}</view>
 </view>
-<view>图片</view>
+
+
+
