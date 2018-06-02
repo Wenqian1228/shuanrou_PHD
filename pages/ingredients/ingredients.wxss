@@ -1,25 +1,29 @@
 
 page{
-    
+    height: 100%;
+   
     background-color:white;
     font-size: 16px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-    background-size: cover,100%;
-  background-image: url("https://raw.githubusercontent.com/Wenqian1228/zwq_wx_background/master/IMG_doujun.JPG");
+    
+  
   
 }
 
 .name{
   font-size: 300%;
-  color:darkgray;
+  color:snow;
   font-style:unset;
   width: 100%;
+  padding-left:10px
 }
 .intro{
+  font-size: 105%;
   padding: 10px;
   margin:30px;
-  background-color:aliceblue;
-  opacity:0.4
+  color:black;
+  background-color:ghostwhite;
+  opacity:0.6
  
 }
 
@@ -32,6 +36,3 @@ view::first_letter {
   padding: 30px;
 }
 
-.valid{
-  opacity:100%
-}
