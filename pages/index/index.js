@@ -5,7 +5,7 @@ var utils = require('../../utils/ingredients.js');
 Page({
   data: {
     kinds: ['肉、蛋类','蔬菜类','内脏类','丸、滑类','豆、菌类','海产类','主食类'],
-    recommendation: ['包心生菜', '牛肉', '羊肉', '大白菜', '豆苗', '菠菜'],
+    recommendation: ['baoxinshengcai', 'niurou', 'yangrou', 'dabaicai', 'doumiao', 'bocai'],
     meat: utils.meat_eggs,
     vegetable: utils.vegetable,
     organs: utils.organs,
@@ -59,7 +59,29 @@ Page({
     ]
   },
   onLoad: function () {
-    var i=0;
+    var that = this;
+    for (var index in utils.meat_eggs){
+      console.log(utils.meat_eggs[index].pinyin);
+      wx.getStorage({
+        key: utils.meat_eggs[index].name,
+        success: function (res) {
+          console.log(res)
+          if (res.data){
+            that.setData({
+              storageContent: 0
+            })
+          }else{
+            that.setData({
+              storageContent: res.data
+            })
+          }
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
+    }
+    
   },
   
   kindToggle: function (e) {
@@ -103,6 +125,7 @@ Page({
       key: name,
       success: function (res) {
         console.log(res)
+        if (res.data)
         that.setData({
           storageContent: res.data
         })

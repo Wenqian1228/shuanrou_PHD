@@ -20,7 +20,7 @@
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
             <view wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this" class='our-dropdown'>
-              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}' class="weui-cell weui-cell_access">
+              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}&tag={{item.name}}' class="weui-cell weui-cell_access">
                 <view class="weui-cell__bd">{{page.name}}</view>
                 <button checked data-name="{{page.name}}" data-time="{{page.time}}" catchtap='navigateTotimer'>⏲</button>
                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
