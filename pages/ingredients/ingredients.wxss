@@ -12,7 +12,7 @@ page{
 
 .name{
   font-size: 300%;
-  color:snow;
+  color:bisque;
   font-style:unset;
   width: 100%;
   padding-left:10px
@@ -23,7 +23,7 @@ page{
   margin:30px;
   color:black;
   background-color:ghostwhite;
-  opacity:0.6
+  opacity:0.5
  
 }
 

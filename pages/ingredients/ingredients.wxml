@@ -1,7 +1,7 @@
 <view style="background-image: url({{bg_url}});height:100%;background-size: cover ;" class="page">
 <view class="name" style="color:{{name_color}}">
   {{name}}
-  
+  <button catchtap='navigateTotimer'>⏲</button>
 </view>
  
 <view  class="intro" ><view class="valid">
