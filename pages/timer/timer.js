@@ -225,7 +225,6 @@ Page({
 
   //Muzi
   createTimer: function(event){
-    console.log(event);
     var that = this;
     var name = event.currentTarget.dataset.name;
     var time = event.currentTarget.dataset.time;
@@ -288,7 +287,6 @@ Page({
           timerList[name].created = false;
           timerList[name].started = false;
           timerList[name].timer.stop(this);
-          console.log("Delete ", name);
           that.setData({
             timerList: timerList
           })
