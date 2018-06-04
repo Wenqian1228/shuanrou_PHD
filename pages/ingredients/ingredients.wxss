@@ -11,11 +11,13 @@ page{
 }
 
 .name{
+  
   font-size: 300%;
   color:bisque;
   font-style:unset;
-  width: 100%;
-  padding-left:10px
+  width: 60%;
+  padding-left:10px;
+  font-family: 'shout';
 }
 .intro{
   font-size: 105%;
@@ -23,7 +25,7 @@ page{
   margin:30px;
   color:black;
   background-color:ghostwhite;
-  opacity:0.5
+  opacity:0.5;
  
 }
 
@@ -34,5 +36,9 @@ view::first_letter {
 
 .image{
   padding: 30px;
+}
+
+.flex_display{
+  display:flex
 }
 
