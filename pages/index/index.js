@@ -5,7 +5,7 @@ var utils = require('../../utils/ingredients.js');
 Page({
   data: {
     kinds: ['肉、蛋类','蔬菜类','内脏类','丸、滑类','豆、菌类','海产类','主食类'],
-    recommendation: ['baoxinshengcai', 'niurou', 'yangrou', 'dabaicai', 'doumiao', 'bocai'],
+    recommendation: ['baoxinshengcai', 'niuroujuan', 'yangroujuan', 'dabaicai', 'doumiao', 'bocai'],
     meat: utils.meat_eggs,
     vegetable: utils.vegetable,
     organs: utils.organs,

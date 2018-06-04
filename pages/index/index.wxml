@@ -2,7 +2,7 @@
 <view class="container">
   <view class="button-sp-area">
     <view class="one-line" wx:for='{{recommendation}}' wx:key='property'> 
-      <button class='weui-btn btn-width our-flex-w' type='default' plain="true">
+      <button class='btn-width our-btn-w'>
         <image src='../../images/buttons/flame.png' class='our-iconimg'></image>
         <image src='../../images/ingredients/{{item}}.png' class='our-iconingr'></image>
       </button>
@@ -10,20 +10,22 @@
   </view>
 </view>
 
-<view class="page__bd page__bd_spacing" style='padding-top: 50rpx'>
+<view class="page__bd page__bd_spacing" style='padding-top: 30rpx'>
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
       <view class="kind-list__item">
-        <view id="{{item.id}}" style='height:50rpx' class="our-flex-w kind-list__item-hd" bindtap="kindToggle">
+        <view id="{{item.id}}" style='height:50rpx' class="our-btn-w kind-list__item-hd" bindtap="kindToggle">
           <text class='our-title'>{{item.name}}</text>
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-          <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-            <view wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this" class='our-dropdown'>
-              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}&tag={{item.name}}&time={{page.time}}' class="weui-cell weui-cell_access">
-                <view class="weui-cell__bd">{{page.name}}</view>
-                <button checked data-name="{{page.name}}" data-time="{{page.time}}" catchtap='navigateTotimer'>⏲</button>
-               <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}} our-dropdown">
+            <view wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}&tag={{item.name}}&time={{page.time}}' class="weui-cell weui-cell_access" style='display:flex;flex-direction:column;'>
+                <view class="weui-cell__bd our-btn-w dropdown-btn">
+                  <image src='/images/ingredients/{{page.pinyin}}.png' style='width:50px;height:50px'></image>
+                  <text style='font-family:shout'>{{page.name}}</text>
+                </view>
+                <button class='our-btn-w dropdown-timerbtn' checked data-name="{{page.name}}" data-time="{{page.time}}" catchtap='navigateTotimer'>⏲</button>
               </navigator>
             </view>
           </view>
