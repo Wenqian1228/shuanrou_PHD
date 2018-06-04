@@ -1,9 +1,25 @@
 <!--pages/timer/timer.wxml-->
-<text>计时器</text>
+<view class='title'>
+  <text>计时器</text>
+</view>
 
 <view wx:for = "{{data}}">
-<view wx:for = "{{item}}">
-<button wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer'>{{item.name}}: {{timerList[item.name].time}}</button>
-<button wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer'>{{item.name}}: {{wxTimerList[item.name].wxTimer}}</button>
-</view>
+  <view wx:for = "{{item}}" class='timerset'>
+    <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer' class='timer our-btn-w'>
+      <text class='timertext'>开始</text>
+      <view>
+        <image src='/images/ingredients/{{item.pinyin}}.png' class='our-iconimg'></image>
+        <text style='font-size:15px'>{{item.name}}</text>
+      </view>
+      {{timerList[item.name].time}}
+    </view>
+    <view wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer' class='timer our-btn-w'>
+      <text class='timertext'>复位</text>
+      <view>
+        <image src='/images/ingredients/{{item.pinyin}}.png' class='our-iconimg'></image>
+        <text style='font-size:15px'>{{item.name}}</text>
+      </view>
+      {{wxTimerList[item.name].wxTimer}}
+    </view>
+  </view>
 </view>
