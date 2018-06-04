@@ -52,7 +52,7 @@ Page({
         break;
       case "海产类":
         this.setData({
-          name_color: 'bisque',
+          name_color: 'cornflowerblue',
           bg_url: 'https://raw.githubusercontent.com/Wenqian1228/zwq_wx_background/master/IMG_haichan2.JPG'
         })
         break;
