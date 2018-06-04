@@ -13,7 +13,7 @@ page{
 .name{
   
   font-size: 300%;
-  color:bisque;
+  color:palevioletred;
   font-style:unset;
   width: 60%;
   padding-left:10px;

@@ -28,7 +28,7 @@ Page({
         break;
       case "肉、蛋类":
         this.setData({
-          name_color: 'snow',
+          name_color: 'white',
           bg_url: 'https://raw.githubusercontent.com/Wenqian1228/zwq_wx_background/master/IMG_roudan2.JPG'
         })
         break;
