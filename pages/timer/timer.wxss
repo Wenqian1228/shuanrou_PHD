@@ -17,29 +17,48 @@ page{
   font-family: 'shout';
   font-size: 40px;
   color: white;
+  margin: 0px 0px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .timer{
-  width: 80px;
+  width: 120px;
   height: 80px;
-  padding: 20px;
-  margin: 20px;
+  margin: 10px 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-.timertext{
+.timer-top{
+  width:120px;
+  height: 50px;
   font-family: 'shout';
   font-size: 25px;
 }
 
+.timer-bottom{
+  width: 120px;
+  height: 30px;
+  font-family: 'shout';
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
 .timerset{
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.ingr-img{
+  width: 25px;
+  height: 25px;
 }
 
 #timer1 {
