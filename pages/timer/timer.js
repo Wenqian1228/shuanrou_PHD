@@ -24,7 +24,8 @@ Page({
     lastTapTime: 0, 
     //Muzi
     data:ingredient_data,
-    timerList: timerList
+    timerList: timerList,
+    
   },
 
   /**
@@ -98,7 +99,8 @@ Page({
       var obj = app.globalData.timer_list[i];
       var name = obj.name;
       var time = obj.beginTime;
-      console.log(name, time);
+      var tag =obj.tag;
+      console.log(name, time, tag);
 
       var newTimer = new timer({
         beginTime: time,

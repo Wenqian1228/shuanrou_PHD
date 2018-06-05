@@ -103,6 +103,8 @@ Page({
     //console.log(e.currentTarget.dataset);
     var name = e.currentTarget.dataset.name;
     var time = e.currentTarget.dataset.time;
+    var tag = e.currentTarget.dataset.tag;
+    
     var seconds = time % 60;
     var min = Math.floor(time / 60);
     var hour = Math.floor(min / 60);
@@ -113,7 +115,8 @@ Page({
     var formatTime = hour + ":" + min + ":" + seconds;
     var timer={
       beginTime: formatTime,
-      name: name
+      name: name,
+      tag:tag
     }
     //console.log(timer);
     // console.log(app.globalData.timer_list);
