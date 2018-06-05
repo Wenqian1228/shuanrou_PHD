@@ -6,7 +6,7 @@
 <view wx:for = "{{data}}" wx:for-item='type' class='timerset'>
   <view wx:for = "{{type}}">
 
-    <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" bindlongpress='deleteTimer' class='timer'>
+    <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bindlongpress='deleteTimer' class='timer'>
       <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' class='our-btn-r timer-top'>
         {{timerList[item.name].time}}
       </view>
@@ -21,7 +21,7 @@
       </view>
     </view>
 
-    <view wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" bindlongpress='deleteTimer' class='timer'>
+    <view wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bindlongpress='deleteTimer' class='timer'>
       <view wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' class='our-btn-r timer-top'>
         {{wxTimerList[item.name].wxTimer}}
       </view>
