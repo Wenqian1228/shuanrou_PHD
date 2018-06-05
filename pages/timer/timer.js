@@ -102,7 +102,35 @@ Page({
 
       var newTimer = new timer({
         beginTime: time,
-        name: name
+        name: name,
+        complete: function (){
+          wx.vibrateLong();
+          
+          console.log("finish");
+          wx.showModal({ //使用模态框提示用户进行操作
+
+            title: '菜好了',
+
+            content: '您的' + name + "可以出锅了",
+
+            success: function (res) {
+              
+              
+              
+              if (res.confirm) { //判断用户是否点击了确定
+                  confirm=true;
+              }
+              
+              
+              
+              
+
+            }
+
+
+          })
+          
+        }
       })
       var myTimer = {
         name: name,
