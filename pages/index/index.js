@@ -126,14 +126,12 @@ Page({
     //console.log(e.currentTarget.dataset);
     var name = e.currentTarget.dataset.name;
     var tag = e.currentTarget.dataset.tag;
-    var pinyin = e.currentTarget.dataset.pinyin;
     var index = e.currentTarget.dataset.index;
     var food = wx.getStorageSync("food");
     // search for time
-    var tag_key = "utils.tags["+tag+"]";
-    console.log(tag_key);
-    console.log(utils.tags["肉、蛋类"])
-    
+    var tag_key = utils.tags[tag];
+    var time = food[tag_key][index].time;
+    //console.log(food[tag_key][index].time);
     var seconds = time % 60;
     var min = Math.floor(time / 60);
     var hour = Math.floor(min / 60);

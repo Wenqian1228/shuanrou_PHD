@@ -1,6 +1,10 @@
 const app = getApp()
+var utils = require('../../utils/ingredients.js');
+var food = wx.getStorageSync("food");
 var time;
 var name;
+var index;
+var tag_key;
 
 Page({
   data:{
@@ -12,13 +16,21 @@ Page({
       name: options.title,
       intro: options.intro,
       tag: options.tag,
-      time: options.time
+      index: options.index
     });
-   time=options.time;
-   name=options.title;
+    var food = wx.getStorageSync("food");
+    // search for time
+    var tag = options.tag;
+    index = options.index;
+    tag_key = utils.tags[tag];
+    time = food[tag_key][index].time;
+    name=options.title;
     console.log(options.tag);
     console.log(time);
     console.log("name"+name);
+    this.setData({
+      time: time
+    })
     
     switch (options.tag) {
       case "蔬菜类":
@@ -111,6 +123,9 @@ Page({
 
         if (res.confirm) { //判断用户是否点击了确定
           confirm = true;
+          console.log(res);
+          //food[tag_key][index].time=0;
+          wx.setStorageSync("food",food);
         }
       }
     })
