@@ -1,9 +1,40 @@
 <!--pages/timer/timer.wxml-->
-<text>计时器</text>
-
-<view wx:for = "{{data}}">
-<view wx:for = "{{item}}">
-<button wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer'>{{item.name}}: {{timerList[item.name].time}}</button>
-<button wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' bindlongpress='deleteTimer'>{{item.name}}: {{wxTimerList[item.name].wxTimer}}</button>
+<view class='title'>
+  <text>计时器</text>
 </view>
+
+<view wx:for = "{{data}}" wx:for-item='type' class='timerset'>
+  <view wx:for = "{{type}}">
+
+    <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bindlongpress='deleteTimer' class='timer'>
+      <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' class='our-btn-r timer-top'>
+        {{timerList[item.name].time}}
+      </view>
+      <view class='timer-bottom'>
+        <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState'>
+          <image src='/images/buttons/start.png' style='height:30px;width:30px;'></image>
+        </view>
+        <navigator class='our-btn-w' style='width:90px;height:30px;' url='/pages/ingredients/ingredients?title={{item.name}}&intro={{item.intro}}&tag={{item.tag}}&time={{item.time}}'>
+          <image src='/images/ingredients/{{item.pinyin}}.png' class='ingr-img'></image>
+          <text>{{item.name}}</text>
+        </navigator>
+      </view>
+    </view>
+
+    <view wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bindlongpress='deleteTimer' class='timer'>
+      <view wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' class='our-btn-r timer-top'>
+        {{wxTimerList[item.name].wxTimer}}
+      </view>
+      <view class='timer-bottom'>
+        <view wx:if = "{{timerList[item.name].created && timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState'>
+          <image src='/images/buttons/reset.png' style='height:30px;width:30px;'></image>
+        </view>
+        <navigator class='our-btn-w' style='width:90px;height:30px;' url='/pages/ingredients/ingredients?title={{item.name}}&intro={{item.intro}}&tag={{item.tag}}&time={{item.time}}'>
+          <image src='/images/ingredients/{{item.pinyin}}.png' class='ingr-img'></image>
+          <text>{{item.name}}</text>
+        </navigator>
+      </view>
+    </view>
+
+  </view>
 </view>

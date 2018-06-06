@@ -4,14 +4,15 @@ var name;
 
 Page({
   data:{
-    
+    showModal: false,
   },
   onLoad: function (options) {
     console.log(options);
     this.setData({
       name: options.title,
       intro: options.intro,
-      tag: options.tag,      
+      tag: options.tag,
+      time: options.time
     });
    time=options.time;
    name=options.title;
@@ -97,6 +98,56 @@ Page({
    
     
 
+  },
+  changeTime:function(){
+    
+    wx.showModal({ //使用模态框提示用户进行操作
+
+      title: '自定义时间',
+
+      content: "选择自己喜欢的涮锅时间",
+
+      success: function (res) {
+
+        if (res.confirm) { //判断用户是否点击了确定
+          confirm = true;
+        }
+      }
+    })
+  },
+
+  /**
+     * 弹窗
+     */
+  showDialogBtn: function () {
+    this.setData({
+      showModal: true
+    })
+  },
+  /**
+   * 弹出框蒙层截断touchmove事件
+   */
+  preventTouchMove: function () {
+  },
+  /**
+   * 隐藏模态对话框
+   */
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+  /**
+   * 对话框取消按钮点击事件
+   */
+  onCancel: function () {
+    this.hideModal();
+  },
+  /**
+   * 对话框确认按钮点击事件
+   */
+  onConfirm: function () {
+    this.hideModal();
   }
   
 })
