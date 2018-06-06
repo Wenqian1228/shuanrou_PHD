@@ -11,7 +11,8 @@ Page({
     this.setData({
       name: options.title,
       intro: options.intro,
-      tag: options.tag,      
+      tag: options.tag,
+      time: options.time
     });
    time=options.time;
    name=options.title;

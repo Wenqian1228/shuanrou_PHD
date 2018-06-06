@@ -14,7 +14,7 @@
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
       <view class="kind-list__item">
-        <view id="{{item.id}}" style='height:50rpx' class="our-btn-w kind-list__item-hd" bindtap="kindToggle">
+        <view id="{{item.id}}" style='height:50rpx;background-color:#c02722' class="our-btn-w kind-list__item-hd" bindtap="kindToggle">
           <text class='our-title'>{{item.name}}</text>
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">

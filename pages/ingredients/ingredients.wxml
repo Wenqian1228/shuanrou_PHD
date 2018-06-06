@@ -2,25 +2,38 @@
 
 
 <view class="flex_display">
-<view class="name" style="color:{{name_color}}">
-  {{name}}
-</view>
+  <view class="name" style="color:{{name_color}}">
+    {{name}}
+  </view>
 
- <button catchtap='navigateTotimer'  style=" width: 20%;border:none;padding-top:25px;padding-right:70px； margin-bottom: -50px;" plain="true">⏲</button>
+  <button class='our-btn-r' style='width:80px;height:40px;' catchtap='navigateTotimer'>
+    <text style='font-family:shout;font-size:16px;'>加入</text>
+    <image src='/images/tab/timer.png' class='our-iconimg'></image>
+  </button>
 
 </view>
 
 <!--自定义按钮-->
 <view class="flex_display">
- <view>
-  <button catchtap='showDialogBtn'  style="width:100%;border:none;color:{{name_color}};font-family: 'shout'" plain="true" >自定义时间</button>
-
- </view>
+  <view style='display:flex;align-items:center'>
+    <text style='font-family:shout;font-size:15px;color:{{name_color}}'>涮煮推荐：</text>
+    <view wx:if='{{time/60>=1}}'>
+      <text style='font-family:shout;font-size:35px;color:{{name_color}};margin:5px'>{{time/60}}</text>
+      <text style='font-family:shout;font-size:15px;color:{{name_color}}'>m</text>
+    </view>
+    <text style='font-family:shout;font-size:35px;color:{{name_color}};margin:5px'>{{time%60}}</text>
+    <text style='font-family:shout;font-size:15px;color:{{name_color}}'>s</text>
+  </view>
+  <view>
+    <button catchtap='showDialogBtn' class='our-btn-w' style='font-size:15px;'>
+      自定义
+    </button>
+  </view>
 </view>
 
 
-<view  class="intro" ><view class="valid">
-  {{intro}}</view>
+<view class="intro">
+  <view>{{intro}}</view>
 </view>
 
 
