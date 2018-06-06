@@ -6,12 +6,45 @@
   {{name}}
 </view>
 
- <button catchtap='navigateTotimer'  style=" width: 20%;border:none;padding-top:25px;padding-right:70px" plain="true">⏲</button>
+ <button catchtap='navigateTotimer'  style=" width: 20%;border:none;padding-top:25px;padding-right:70px； margin-bottom: -50px;" plain="true">⏲</button>
 
 </view>
- 
+
+<!--自定义按钮-->
+<view class="flex_display">
+ <view>
+  <button catchtap='showDialogBtn'  style="width:100%;border:none;color:{{name_color}};font-family: 'shout'" plain="true" >自定义时间</button>
+
+ </view>
+</view>
+
+
 <view  class="intro" ><view class="valid">
   {{intro}}</view>
 </view>
 
+
+
+  
+
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">自定义涮锅时间</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入自己喜欢的时间(秒)"></input>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+  </view>
 </view>
+
+
+
+</view>
+
+

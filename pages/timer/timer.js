@@ -114,17 +114,13 @@ Page({
             title: '菜好了',
 
             content: '您的' + name + "可以出锅了",
+            showCancel:false,
 
             success: function (res) {
-              
-              
-              
+                  
               if (res.confirm) { //判断用户是否点击了确定
                   confirm=true;
               }
-              
-              
-              
               
 
             }
