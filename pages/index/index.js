@@ -13,6 +13,7 @@ Page({
     soy_fungus: utils.soy_fungus,
     seafood: utils.seafood,
     mainfood: utils.mainfood,
+    category: [utils.meat_eggs, utils.vegetable, utils.organs, utils.balls_wahs, utils.soy_fungus, utils.seafood],
     list: [
       {
         id: 'meat',
@@ -60,32 +61,73 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    for (var index in utils.meat_eggs){
-      console.log(utils.meat_eggs[index].pinyin);
-      wx.getStorage({
-        key: utils.meat_eggs[index].name,
-        success: function (res) {
-          console.log(res)
-          if (res.data){
+    for(var kind in that.data.list){
+      console.log(that.data.list[kind]);
+      if(kind<=5){
+        var counting_list = wx.getStorageSync(that.data.list[kind].id);
+        var time_list = wx.getStorageSync(that.data.list[kind].name);
+        if (counting_list) {
+          console.log(counting_list);
+          var index = counting_list.indexOf(Math.max(...counting_list));
+          console.log(index);
+          if (counting_list[index]>=0){
+            var rec = "recommendation["+kind+"]";
             that.setData({
-              storageContent: 0
-            })
-          }else{
-            that.setData({
-              storageContent: res.data
-            })
+              [rec]: that.data.list[kind].pages[index].pinyin
+            });
           }
-        },
-        fail: function (res) {
-          console.log(res)
         }
-      })
+        else {
+          wx.setStorageSync(that.data.list[kind].id, Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0));
+          console.log(wx.getStorageSync(that.data.list[kind].id));
+        }
+        if (time_list) {
+          console.log(time_list);
+        }
+        else {
+          wx.setStorageSync(that.data.list[kind].name, Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0));
+          console.log(wx.getStorageSync(that.data.list[kind].name));
+        }
+      }
+      // for (var index in that.data.category[kind]){
+      //   console.log(that.data.category[kind][index].pinyin);
+      //   var value = wx.getStorageSync(that.data.category[kind][index].name);
+      //   if (value) {
+      //     if (value > that.data.max_counting) {
+      //       that.setData({
+      //         max_counting: value
+      //       })
+      //     }
+      //   }else {
+      //     wx.setStorage({
+      //       key: that.data.category[kind][index].name,
+      //       data:0
+      //     })
+      //     // wx.setStorageSync(that.data.category[kind][index].name, 0)
+      //     // console.log(wx.getStorageSync(that.data.category[kind][index].name))
+      //   }
+        // wx.getStorage({
+        //   key: that.data.category[kind][index].name,
+        //   success: function (res) {
+        //     console.log(res)
+        //     if (res.data){
+        //       if(res.data > that.data.max_counting){
+        //         that.setData({
+        //           max_counting: res.data
+        //         })
+        //       }
+        //     }else{
+        //       wx.setStorageSync(that.data.category[kind][index].name,0)
+        //     }
+        //   },
+        //   fail: function(res){
+        //     console.log(that.data.category[kind][index].name)
+        //   }
+        // })
+      //}
     }
-    
   },
-  
   kindToggle: function (e) {
-    console.log("drop-down");
     var id = e.currentTarget.id, list = this.data.list;
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
