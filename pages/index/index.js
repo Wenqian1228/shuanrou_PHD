@@ -5,16 +5,7 @@ var utils = require('../../utils/ingredients.js');
 Page({
   data: {
     kinds: ['肉、蛋类','蔬菜类','内脏类','丸、滑类','豆、菌类','海产类','主食类'],
-    recommendation: ['baoxinshengcai', 'niuroujuan', 'yangroujuan', 'dabaicai', 'doumiao', 'bocai'],
-    // time: [
-    //   [30,30,60,480,900,180,120,300,480,300,180,180],
-    //   [60,60,120,60,60,60,60,60,60,120,180,60,300,180,300,240,30,180,180,30,240,180,240,180,240],
-    //   [180,15,60,30,15,300,180,180,30],
-    //   [240,300,300,180,300,120,240,120],
-    //   [180,90,120,120,180,60,120,120,30,300,360,300,240,180],
-    //   [300,300,300,300,300,480,300],
-    //   [600,180,180,300,120],
-    // ],
+    recommendation: [],
     meat: utils.meat_eggs,
     vegetable: utils.vegetable,
     organs: utils.organs,
@@ -71,53 +62,68 @@ Page({
   onLoad: function () {
     var that = this;
     for(var kind in that.data.list){
-      console.log(that.data.list[kind]);
-      if(kind<=5){
+      //console.log(that.data.list[kind]);
         var counting_list = wx.getStorageSync(that.data.list[kind].id);
         if (counting_list) {
-          console.log(counting_list);
+          //console.log(counting_list);
           var index = counting_list.indexOf(Math.max(...counting_list));
           // console.log(index);
           if (counting_list[index]>=0){
             var rec = "recommendation["+kind+"]";
+            var rec_thing = {
+              pinyin: that.data.list[kind].pages[index].pinyin,
+              name: that.data.list[kind].pages[index].name,
+              intro: that.data.list[kind].pages[index].intro,
+              tag: that.data.list[kind].pages[index].tag,
+              index: index
+            };
+            //console.log(rec_thing);
             that.setData({
-              [rec]: that.data.list[kind].pages[index].pinyin
+              [rec]: rec_thing
             });
+            //console.log(this.data.recommendation);
           }
         }
         else {
           wx.setStorageSync(that.data.list[kind].id, Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0));
-          console.log(wx.getStorageSync(that.data.list[kind].id));
+          //console.log(wx.getStorageSync(that.data.list[kind].id));
         }
-      }
     }
     var time_list = wx.getStorageSync("food");
     if (time_list) {
-      console.log(time_list);
+      //console.log(time_list);
     }
     else {
       wx.setStorageSync("food", utils.food);
-      console.log(wx.getStorageSync("food"));
+      //console.log(wx.getStorageSync("food"));
     }
   },
   onShow: function(){
     var that = this;
     for (var kind in that.data.list) {
       //console.log(that.data.list[kind]);
-      if (kind <= 5) {
-        var counting_list = wx.getStorageSync(that.data.list[kind].id);
-        if (counting_list) {
-          //console.log(counting_list);
-          var index = counting_list.indexOf(Math.max(...counting_list));
-          // console.log(index);
-          if (counting_list[index] >= 0) {
-            var rec = "recommendation[" + kind + "]";
-            that.setData({
-              [rec]: that.data.list[kind].pages[index].pinyin
-            });
-          }
+      var counting_list = wx.getStorageSync(that.data.list[kind].id);
+      if (counting_list) {
+        //console.log(counting_list);
+        var index = counting_list.indexOf(Math.max(...counting_list));
+        // console.log(index);
+        if (counting_list[index] >= 0) {
+          var rec = "recommendation[" + kind + "]";
+          var rec_thing = {
+            pinyin: that.data.list[kind].pages[index].pinyin,
+            name: that.data.list[kind].pages[index].name,
+            intro: that.data.list[kind].pages[index].intro,
+            tag: that.data.list[kind].pages[index].tag,
+            index: index
+          };
+          //console.log(rec_thing);
+          that.setData({
+            [rec]: rec_thing
+          });
+          //console.log(this.data.recommendation);
         }
       }
+      
     }
   },
   kindToggle: function (e) {
@@ -157,18 +163,35 @@ Page({
       name: name,
       tag:tag
     }
+    // check repeat
+    var repeat = 0;
+    for (var i in app.globalData.timer_list) {
+      if (app.globalData.timer_list[i].name == name) {
+        repeat = 1;
+        wx.showToast({
+          title: '无需重复添加',
+        });
+      }
+    }
     //console.log(timer);
     // console.log(app.globalData.timer_list);
     getApp().globalData.timer_list.push(timer);
     //console.log(app.globalData.timer_list);
-    //setstorage
-    var that = this;
-    var counting_arr = wx.getStorageSync(tag_key);
-    counting_arr[index] = counting_arr[index]+1;
-    wx.setStorageSync(tag_key, counting_arr);
-    //console.log(wx.getStorageSync(tag_key));
-    wx.switchTab({
-      url: '../timer/timer',
-    })
+    if(repeat==0){
+      //setstorage
+      var that = this;
+      var counting_arr = wx.getStorageSync(tag_key);
+      counting_arr[index] = counting_arr[index]+1;
+      wx.setStorageSync(tag_key, counting_arr);
+      //console.log(wx.getStorageSync(tag_key));
+      // wx.switchTab({
+      //   url: '../timer/timer',
+      // })
+      wx.showToast({
+        title: '已添加' + name,
+        icon: 'success',
+        duration: 2000
+      });
+    }
   }
 })

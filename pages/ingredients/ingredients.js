@@ -106,13 +106,33 @@ Page({
       beginTime: formatTime,
       name: name1
     }
-    //console.log(timer);
-    console.log(app.globalData.timer_list);
-    getApp().globalData.timer_list.push(timer);
-    console.log(app.globalData.timer_list);
-    
-   
-    
+    var repeat = 0;
+    for (var i in app.globalData.timer_list) {
+      if (app.globalData.timer_list[i].name == name) {
+        repeat = 1;
+        wx.showToast({
+          title: '无需重复添加'
+        });
+      }
+    }
+    if(repeat==0){
+      //console.log(timer);
+      console.log(app.globalData.timer_list);
+      getApp().globalData.timer_list.push(timer);
+      console.log(app.globalData.timer_list);
+
+      //setstorage
+      var that = this;
+      var counting_arr = wx.getStorageSync(tag_key);
+      counting_arr[index] = counting_arr[index] + 1;
+      wx.setStorageSync(tag_key, counting_arr);
+      console.log(wx.getStorageSync(tag_key));
+      wx.showToast({
+        title: '已添加' + name,
+        icon: 'success',
+        duration: 2000
+      })
+    }
 
   },
   changeTime:function(){
