@@ -6,6 +6,15 @@ Page({
   data: {
     kinds: ['肉、蛋类','蔬菜类','内脏类','丸、滑类','豆、菌类','海产类','主食类'],
     recommendation: ['baoxinshengcai', 'niuroujuan', 'yangroujuan', 'dabaicai', 'doumiao', 'bocai'],
+    // time: [
+    //   [30,30,60,480,900,180,120,300,480,300,180,180],
+    //   [60,60,120,60,60,60,60,60,60,120,180,60,300,180,300,240,30,180,180,30,240,180,240,180,240],
+    //   [180,15,60,30,15,300,180,180,30],
+    //   [240,300,300,180,300,120,240,120],
+    //   [180,90,120,120,180,60,120,120,30,300,360,300,240,180],
+    //   [300,300,300,300,300,480,300],
+    //   [600,180,180,300,120],
+    // ],
     meat: utils.meat_eggs,
     vegetable: utils.vegetable,
     organs: utils.organs,
@@ -65,11 +74,10 @@ Page({
       console.log(that.data.list[kind]);
       if(kind<=5){
         var counting_list = wx.getStorageSync(that.data.list[kind].id);
-        var time_list = wx.getStorageSync(that.data.list[kind].name);
         if (counting_list) {
           console.log(counting_list);
           var index = counting_list.indexOf(Math.max(...counting_list));
-          console.log(index);
+          // console.log(index);
           if (counting_list[index]>=0){
             var rec = "recommendation["+kind+"]";
             that.setData({
@@ -81,50 +89,23 @@ Page({
           wx.setStorageSync(that.data.list[kind].id, Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0));
           console.log(wx.getStorageSync(that.data.list[kind].id));
         }
-        if (time_list) {
-          console.log(time_list);
-        }
-        else {
-          wx.setStorageSync(that.data.list[kind].name, Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0));
-          console.log(wx.getStorageSync(that.data.list[kind].name));
-        }
       }
-      // for (var index in that.data.category[kind]){
-      //   console.log(that.data.category[kind][index].pinyin);
-      //   var value = wx.getStorageSync(that.data.category[kind][index].name);
-      //   if (value) {
-      //     if (value > that.data.max_counting) {
-      //       that.setData({
-      //         max_counting: value
-      //       })
-      //     }
-      //   }else {
-      //     wx.setStorage({
-      //       key: that.data.category[kind][index].name,
-      //       data:0
-      //     })
-      //     // wx.setStorageSync(that.data.category[kind][index].name, 0)
-      //     // console.log(wx.getStorageSync(that.data.category[kind][index].name))
-      //   }
-        // wx.getStorage({
-        //   key: that.data.category[kind][index].name,
-        //   success: function (res) {
-        //     console.log(res)
-        //     if (res.data){
-        //       if(res.data > that.data.max_counting){
-        //         that.setData({
-        //           max_counting: res.data
-        //         })
-        //       }
-        //     }else{
-        //       wx.setStorageSync(that.data.category[kind][index].name,0)
-        //     }
-        //   },
-        //   fail: function(res){
-        //     console.log(that.data.category[kind][index].name)
-        //   }
-        // })
-      //}
+      // var time_list = wx.getStorageSync(that.data.list[kind].name);
+      // if (time_list) {
+      //   console.log(time_list);
+      // }
+      // else {
+      //   wx.setStorageSync(that.data.list[kind].name, that.data.time[kind]);
+      //   console.log(wx.getStorageSync(that.data.list[kind].name));
+      // }
+    }
+    var time_list = wx.getStorageSync("food");
+    if (time_list) {
+      console.log(time_list);
+    }
+    else {
+      wx.setStorageSync("food", utils.food);
+      console.log(wx.getStorageSync("food"));
     }
   },
   kindToggle: function (e) {
@@ -144,8 +125,14 @@ Page({
     var count = 0;
     //console.log(e.currentTarget.dataset);
     var name = e.currentTarget.dataset.name;
-    var time = e.currentTarget.dataset.time;
     var tag = e.currentTarget.dataset.tag;
+    var pinyin = e.currentTarget.dataset.pinyin;
+    var index = e.currentTarget.dataset.index;
+    var food = wx.getStorageSync("food");
+    // search for time
+    var tag_key = "utils.tags["+tag+"]";
+    console.log(tag_key);
+    console.log(utils.tags["肉、蛋类"])
     
     var seconds = time % 60;
     var min = Math.floor(time / 60);
