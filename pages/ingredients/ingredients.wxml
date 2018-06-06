@@ -10,7 +10,6 @@
     <text style='font-family:shout;font-size:16px;'>加入</text>
     <image src='/images/tab/timer.png' class='our-iconimg'></image>
   </button>
-
 </view>
 
 <!--自定义按钮-->
