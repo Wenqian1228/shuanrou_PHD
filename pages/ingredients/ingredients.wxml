@@ -17,7 +17,7 @@
 <view class="flex_display">
   <view style='display:flex;align-items:center'>
     <text style='font-family:shout;font-size:15px;color:{{name_color}}'>涮煮推荐：</text>
-    <view wx:if='{{time/60>=1}}'>
+    <view wx:if='{{time/60>=1}}' style='display:flex;align-items:center'>
       <text style='font-family:shout;font-size:35px;color:{{name_color}};margin:5px'>{{time/60}}</text>
       <text style='font-family:shout;font-size:15px;color:{{name_color}}'>m</text>
     </view>
