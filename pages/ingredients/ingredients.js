@@ -15,15 +15,19 @@ Page({
     this.setData({
       name: options.title,
       intro: options.intro,
-      tag: options.tag,
-      index: options.index
+      tag: options.tag
     });
     var food = wx.getStorageSync("food");
-    // search for time
     var tag = options.tag;
-    index = options.index;
-    tag_key = utils.tags[tag];
-    time = food[tag_key][index].time;
+    // search for time
+    if(options.time){
+      time = options.time
+    }
+    else{
+      index = options.index;
+      tag_key = utils.tags[tag];
+      time = food[tag_key][index].time;
+    }
     name=options.title;
     console.log(options.tag);
     console.log(time);
