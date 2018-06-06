@@ -25,7 +25,7 @@ Page({
     category: [utils.meat_eggs, utils.vegetable, utils.organs, utils.balls_wahs, utils.soy_fungus, utils.seafood],
     list: [
       {
-        id: 'meat',
+        id: 'meat_eggs',
         name: '肉、蛋类',
         open: false,
         pages: utils.meat_eggs
@@ -90,14 +90,6 @@ Page({
           console.log(wx.getStorageSync(that.data.list[kind].id));
         }
       }
-      // var time_list = wx.getStorageSync(that.data.list[kind].name);
-      // if (time_list) {
-      //   console.log(time_list);
-      // }
-      // else {
-      //   wx.setStorageSync(that.data.list[kind].name, that.data.time[kind]);
-      //   console.log(wx.getStorageSync(that.data.list[kind].name));
-      // }
     }
     var time_list = wx.getStorageSync("food");
     if (time_list) {
@@ -106,6 +98,26 @@ Page({
     else {
       wx.setStorageSync("food", utils.food);
       console.log(wx.getStorageSync("food"));
+    }
+  },
+  onShow: function(){
+    var that = this;
+    for (var kind in that.data.list) {
+      //console.log(that.data.list[kind]);
+      if (kind <= 5) {
+        var counting_list = wx.getStorageSync(that.data.list[kind].id);
+        if (counting_list) {
+          //console.log(counting_list);
+          var index = counting_list.indexOf(Math.max(...counting_list));
+          // console.log(index);
+          if (counting_list[index] >= 0) {
+            var rec = "recommendation[" + kind + "]";
+            that.setData({
+              [rec]: that.data.list[kind].pages[index].pinyin
+            });
+          }
+        }
+      }
     }
   },
   kindToggle: function (e) {
@@ -151,29 +163,10 @@ Page({
     //console.log(app.globalData.timer_list);
     //setstorage
     var that = this;
-    wx.getStorage({
-      key: name,
-      success: function (res) {
-        console.log(res)
-        if (res.data)
-        that.setData({
-          storageContent: res.data
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-      }
-    })
-    wx.setStorage({
-      key: name,
-      data: that.data.storageContent+1,
-      success: function(res){
-        console.log(res)
-      },
-      fail: function (res) {
-        console.log(res)
-      }
-    })
+    var counting_arr = wx.getStorageSync(tag_key);
+    counting_arr[index] = counting_arr[index]+1;
+    wx.setStorageSync(tag_key, counting_arr);
+    //console.log(wx.getStorageSync(tag_key));
     wx.switchTab({
       url: '../timer/timer',
     })
