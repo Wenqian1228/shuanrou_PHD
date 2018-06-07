@@ -14,7 +14,7 @@
         <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState'>
           <image src='/images/buttons/start.png' style='height:30px;width:30px;'></image>
         </view>
-        <navigator class='our-btn-w' style='width:90px;height:30px;' url='/pages/ingredients/ingredients?title={{item.name}}&intro={{item.intro}}&tag={{item.tag}}&time={{item.time}}'>
+        <navigator class='our-btn-w' style='width:90px;height:30px;' url='/pages/ingredients/ingredients?title={{item.name}}&intro={{item.intro}}&tag={{item.tag}}&index={{item.index}}'>
           <image src='/images/ingredients/{{item.pinyin}}.png' class='ingr-img'></image>
           <text>{{item.name}}</text>
         </navigator>
