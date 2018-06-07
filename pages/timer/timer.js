@@ -4,6 +4,12 @@ var timer = require('wxTimer.js');
 var ingredient_data = require('../../utils/ingredients.js');
 var timerList = {};
 
+//voice
+const innerAudioContext = wx.createInnerAudioContext();
+innerAudioContext.autoplay = false;
+innerAudioContext.src = 'https://raw.githubusercontent.com/Wenqian1228/zwq_wx_background/master/to-the-point.mp3';
+
+
 Page({
 
   /**
@@ -65,7 +71,9 @@ Page({
         beginTime: time,
         name: name,
         complete: function (){
+          innerAudioContext.play();
           wx.vibrateLong();
+          
           
           //console.log("finish");
           wx.showModal({ //使用模态框提示用户进行操作
