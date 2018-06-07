@@ -8,9 +8,9 @@
   <text>去找找好吃的吧~</text>
 </view>
 
-<view wx:for = "{{data}}" wx:for-item='type'>
+<view wx:for = "{{data}}" wx:for-item='type' class='timerset'>
 
-  <view wx:for = "{{type}}" class='timerset'>
+  <view wx:for = "{{type}}" >
 
     <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bindlongpress='deleteTimer' class='timer'>
       <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' class='our-btn-r timer-top'>

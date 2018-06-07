@@ -4,6 +4,7 @@ var utils = require('../../utils/ingredients.js');
 var foodList = [];
 var selectedFoodList = [];
 var selectedFoodListName = [];
+var resultExist=true;
 
 Page({
   data: {
@@ -67,7 +68,8 @@ Page({
     inputVal: "",
     foodList: foodList,
     selectedFoodList: selectedFoodList,
-    selectedFoodListName: selectedFoodListName
+    selectedFoodListName: selectedFoodListName,
+    resultExist:resultExist
   },
 
   //search
@@ -95,6 +97,10 @@ Page({
 
   onLoad: function () {
     var that = this;
+    resultExist=true;
+    that.setData({
+      resultExist:resultExist
+    });
     for(var kind in that.data.list){
       //console.log(that.data.list[kind]);
         var counting_list = wx.getStorageSync(that.data.list[kind].id);
@@ -294,13 +300,22 @@ Page({
       selectedFoodList: selectedFoodList,
       selectedFoodListName: selectedFoodListName
     });
+
+    if (selectedFoodList.length==0){
+      resultExist=false;
+      this.setData({
+        resultExist:resultExist
+      })
+    }
   },
   clearSearch: function () {
     selectedFoodList = [];
     selectedFoodListName = [];
+    resultExist = true;
     this.setData({
       selectedFoodList: [],
-      selectedFoodListName: []
+      selectedFoodListName: [],
+      resultExist: resultExist
     });
   },
 

@@ -22,15 +22,29 @@
         </view>
 
 <!--research drop down-->
-<view class="weui-cells searchbar-result" wx:for="{{selectedFoodList}}">
+        <view class="weui-cells searchbar-result" wx:for="{{selectedFoodList}}">
             <navigator url="../ingredients/ingredients?title={{item.name}}&intro={{item.intro}}&tag={{item.tag}}&time={{item.time}}" class="weui-cell" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
                     <view style="font-family:shout;color:maroon;font-size:120%">{{item.name}}</view>
                 </view>
             </navigator>
         </view>
+
+        <!--无结果提示-->
+        <view class="weui-cells searchbar-result" wx-if="{{resultExist==false}}">
+            <view class="weui-cell" >
+                <view class="weui-cell__bd">
+                    <view style="font-family:shout;color:maroon;font-size:120%">无结果</view>
+                </view>
+            </view>
+        </view>
+
     </view>
 </view>
+
+
+
+
 
 
 <view class="container">
