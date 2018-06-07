@@ -15,7 +15,7 @@ page{
 
 .title{
   font-family: 'shout';
-  font-size: 40px;
+  font-size: 100rpx;
   color: white;
   margin: 0px 0px 20px;
   display: flex;

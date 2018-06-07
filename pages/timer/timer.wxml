@@ -3,8 +3,14 @@
   <text>计时器</text>
 </view>
 
-<view wx:for = "{{data}}" wx:for-item='type' class='timerset'>
-  <view wx:for = "{{type}}">
+<view wx:if='{{timerNum == 0}}' style='display:flex;flex-direction:column;align-items:center;color:grey;font-size:20rpx'>
+  <text style='padding:5px'>还未添加任何菜品计时器噢!</text>
+  <text>去找找好吃的吧~</text>
+</view>
+
+<view wx:for = "{{data}}" wx:for-item='type'>
+
+  <view wx:for = "{{type}}" class='timerset'>
 
     <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bindlongpress='deleteTimer' class='timer'>
       <view wx:if = "{{timerList[item.name].created && !timerList[item.name].started}}" data-name='{{item.name}}' bind:tap='changeTimerState' class='our-btn-r timer-top'>
@@ -37,4 +43,8 @@
     </view>
 
   </view>
+</view>
+
+<view wx:if='{{timerNum > 0}}' style='display:flex;flex-direction:column;align-items:center;color:grey;font-size:20rpx'>
+  <text style='padding:5px'>点击开始或停止，长按删除计时器</text>
 </view>

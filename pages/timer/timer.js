@@ -25,7 +25,7 @@ Page({
     //Muzi
     data:ingredient_data,
     timerList: timerList,
-    
+    timerNum: Object.keys(timerList).length
   },
 
   /**
@@ -144,6 +144,7 @@ Page({
     app.globalData.timer_list = [];
     that.setData({
       timerList: timerList,
+      timerNum: Object.keys(timerList).length
     })
   },
 
@@ -274,6 +275,7 @@ Page({
     timerList[name] = myTimer;
     that.setData({
       timerList: timerList,
+      timerNum: Object.keys(timerList).length
     })
   },
 
@@ -291,7 +293,8 @@ Page({
     }
 
     that.setData({
-      timerList: timerList
+      timerList: timerList,
+      timerNum: Object.keys(timerList).length
     })
   },
   
@@ -314,7 +317,8 @@ Page({
           timerList[name].started = false;
           timerList[name].timer.stop(this);
           that.setData({
-            timerList: timerList
+            timerList: timerList,
+            timerNum: Object.keys(timerList).length
           })
 
         }

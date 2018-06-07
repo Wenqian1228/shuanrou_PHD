@@ -47,6 +47,7 @@
   </view>
 </view>
 
+<text style='font-family:shout;color:ghostwhite;margin:20px'>全部菜品</text>
 <view class="page__bd page__bd_spacing" style='padding-top: 30rpx'>
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
