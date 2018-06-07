@@ -4,6 +4,9 @@ App({
   },
   globalData: {
     timer_list: [],
-    open_id: '火锅博士'
-  }
+    open_id: '火锅博士',
+    
+  },
+
+
 })

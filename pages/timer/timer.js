@@ -259,6 +259,17 @@ Page({
 
     })
    
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '涮肉博士',
+      path: '/pages/index/index',
+      imageUrl:'https://raw.githubusercontent.com/Wenqian1228/zwq_wx_background/master/IMG_neizang.JPG'
+    }
   }
  
 
