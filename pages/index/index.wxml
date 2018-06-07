@@ -28,11 +28,7 @@
                     <view style="font-family:shout;color:maroon;font-size:120%">{{item.name}}</view>
                 </view>
             </navigator>
-            
         </view>
-
-        
-    
     </view>
 </view>
 
@@ -61,7 +57,7 @@
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells2 {{item.open ? 'weui-cells_show' : ''}} our-dropdown">
             <view wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
-              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}&tag={{item.name}}&index={{page.index}}' class="weui-cell weui-cell_access" style='display:flex;flex-direction:column;'>
+              <navigator url='../ingredients/ingredients?title={{page.name}}&intro={{page.intro}}&tag={{item.name}}&index={{page.index}}' class="weui-cell_access" style='display:flex;flex-direction:column;padding:10px'>
                 <view class="weui-cell__bd our-btn-w dropdown-btn">
                   <image src='/images/ingredients/{{page.pinyin}}.png' style='width:50px;height:50px'></image>
                   <text style='font-family:shout'>{{page.name}}</text>
