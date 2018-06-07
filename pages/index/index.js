@@ -140,7 +140,7 @@ Page({
 
     //searchbar
     var food = wx.getStorageSync("food");
-    console.log("hahahahha" + food.balls_wahs[0].name);
+    //console.log("hahahahha" + food.balls_wahs[0].name);
     var length = food.balls_wahs.length;
     var i = 0;
     for (i = 0; i < length; i++) {
@@ -171,7 +171,7 @@ Page({
       foodList.push(food.vegetable[i]);
     }
 
-    console.log("food list length: " + foodList.length);
+    //console.log("food list length: " + foodList.length);
 
   },
   onShow: function(){
@@ -282,7 +282,7 @@ Page({
     var length = foodList.length;
     var i = 0;
 
-    console.log(this.data.inputVal);
+    //console.log(this.data.inputVal);
     for (i = 0; i < length; i++) {
       if (foodList[i].name.includes(this.data.inputVal) && this.data.inputVal.length > 0) {
         selectedFoodList.push(foodList[i]);
@@ -292,10 +292,10 @@ Page({
 
     length = selectedFoodList.length;
     for (i = 0; i < length; i++) {
-      console.log(selectedFoodList[i].name)
+      //console.log(selectedFoodList[i].name)
     }
 
-    console.log(selectedFoodList.length)
+    //console.log(selectedFoodList.length)
     this.setData({
       selectedFoodList: selectedFoodList,
       selectedFoodListName: selectedFoodListName
@@ -323,7 +323,7 @@ Page({
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+      //console.log(res.target)
     }
     return {
       title: '涮肉博士',

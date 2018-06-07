@@ -23,8 +23,7 @@ page{
   margin-left:30px;
   margin-right:30px;
   color:black;
-  background-color:ghostwhite;
-  opacity:0.5;
+  background-color: rgba(248, 248, 255, 0.5);
 }
 
 view::first_letter {

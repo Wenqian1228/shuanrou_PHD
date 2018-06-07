@@ -13,7 +13,7 @@ Page({
     inputVal: ""
   },
   onLoad: function (options) {
-    console.log(options);
+    //console.log(options);
     this.setData({
       name: options.title,
       intro: options.intro,
@@ -28,15 +28,15 @@ Page({
       time = options.time
     }
     else{
-      console.log("index");
+      //console.log("index");
       index = options.index;
       tag_key = utils.tags[tag];
       time = food[tag_key][index].time;
     }
     name=options.title;
-    console.log(options.tag);
-    console.log(time);
-    console.log("name"+name);
+    //console.log(options.tag);
+    //console.log(time);
+    //console.log("name"+name);
     this.setData({
       time: time
     })
@@ -87,7 +87,7 @@ Page({
   
    
     
-    console.log(this.data.name);
+    //console.log(this.data.name);
     
     
   },
@@ -105,8 +105,8 @@ Page({
     hour = ("0" + hour).slice(-2);
     var formatTime = hour + ":" + min + ":" + seconds;
 
-    console.log("name: "+name1);
-    console.log("time: "+formatTime);
+    //console.log("name: "+name1);
+    //console.log("time: "+formatTime);
     var timer = {
       beginTime: formatTime,
       name: name1
@@ -122,16 +122,16 @@ Page({
     }
     if(repeat==0){
       //console.log(timer);
-      console.log(app.globalData.timer_list);
+      //console.log(app.globalData.timer_list);
       getApp().globalData.timer_list.push(timer);
-      console.log(app.globalData.timer_list);
+      //console.log(app.globalData.timer_list);
 
       //setstorage
       var that = this;
       var counting_arr = wx.getStorageSync(tag_key);
       counting_arr[index] = counting_arr[index] + 1;
       wx.setStorageSync(tag_key, counting_arr);
-      console.log(wx.getStorageSync(tag_key));
+      //console.log(wx.getStorageSync(tag_key));
       wx.showToast({
         title: '已添加' + name,
         icon: 'success',
@@ -152,7 +152,7 @@ Page({
 
         if (res.confirm) { //判断用户是否点击了确定
           confirm = true;
-          console.log(res);
+          //console.log(res);
           //food[tag_key][index].time=0;
           wx.setStorageSync("food",food);
         }
@@ -196,15 +196,15 @@ Page({
       inputVal: e.detail.value
     });
     input = this.data.inputVal;
-    console.log("type in: " + input);
+    //console.log("type in: " + input);
   },
   onConfirm: function () {
-    console.log(this.data.name + input);
+    //console.log(this.data.name + input);
     this.hideModal();
 
     //set storage
     var food = wx.getStorageSync("food");
-    console.log("hahahahha" + food.balls_wahs[0].name);
+    //console.log("hahahahha" + food.balls_wahs[0].name);
     var length = food.balls_wahs.length;
     var i = 0;
     for (i = 0; i < length; i++) {
@@ -250,8 +250,8 @@ Page({
     }
 
     wx.setStorageSync("food", food);
-    console.log("modified:");
-    console.log(food);
+    //console.log("modified:");
+    //console.log(food);
     time = parseInt(input);
     this.setData({
       time: time
