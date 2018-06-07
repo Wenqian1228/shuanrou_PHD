@@ -252,6 +252,12 @@ Page({
     wx.setStorageSync("food", food);
     console.log("modified:");
     console.log(food);
+    time = parseInt(input);
+    this.setData({
+      time: time
+    })
+
   }
+
   
 })
