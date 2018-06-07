@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <text style='font-family:shout;color:ghostwhite;margin:20px'>推荐菜品</text>
+  <text style='font-family:shout;color:ghostwhite;margin:30px'>推荐菜品</text>
   <view class="button-sp-area">
     <view class="one-line" wx:for='{{recommendation}}' wx:key='property' wx:if="{{index<6}}">
     <navigator url='../ingredients/ingredients?title={{item.name}}&intro={{item.intro}}&tag={{item.tag}}&index={{item.index}}'>
