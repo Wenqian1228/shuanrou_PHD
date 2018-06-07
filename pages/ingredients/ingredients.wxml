@@ -46,7 +46,7 @@
   <view class="modal-title">自定义涮锅时间</view>
   <view class="modal-content">
     <view class="modal-input">
-      <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入自己喜欢的时间(秒)"></input>
+      <input placeholder-class="input-holder" value="{{inputVal}}" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入自己喜欢的时间(秒)"></input>
     </view>
   </view>
   <view class="modal-footer">

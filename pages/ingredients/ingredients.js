@@ -5,10 +5,12 @@ var time;
 var name;
 var index;
 var tag_key;
+var input;
 
 Page({
   data:{
     showModal: false,
+    inputVal: ""
   },
   onLoad: function (options) {
     console.log(options);
@@ -20,10 +22,13 @@ Page({
     var food = wx.getStorageSync("food");
     var tag = options.tag;
     // search for time
+ 
     if(options.time){
+      
       time = options.time
     }
     else{
+      console.log("index");
       index = options.index;
       tag_key = utils.tags[tag];
       time = food[tag_key][index].time;
@@ -185,8 +190,68 @@ Page({
   /**
    * 对话框确认按钮点击事件
    */
+
+  inputChange: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+    input = this.data.inputVal;
+    console.log("type in: " + input);
+  },
   onConfirm: function () {
+    console.log(this.data.name + input);
     this.hideModal();
+
+    //set storage
+    var food = wx.getStorageSync("food");
+    console.log("hahahahha" + food.balls_wahs[0].name);
+    var length = food.balls_wahs.length;
+    var i = 0;
+    for (i = 0; i < length; i++) {
+      if (food.balls_wahs[i].name == this.data.name) {
+        food.balls_wahs[i].time = parseInt(input);
+      }
+    }
+    length = food.mainfood.length;
+    for (i = 0; i < length; i++) {
+      if (food.mainfood[i].name == this.data.name) {
+        food.mainfood[i].time = parseInt(input);
+      }
+    }
+    length = food.meat_eggs.length;
+    for (i = 0; i < length; i++) {
+      if (food.meat_eggs[i].name == this.data.name) {
+        food.meat_eggs[i].time = parseInt(input);
+      }
+    }
+    length = food.organs.length;
+    for (i = 0; i < length; i++) {
+      if (food.organs[i].name == this.data.name) {
+        food.organs[i].time = parseInt(input);
+      }
+    }
+    length = food.seafood.length;
+    for (i = 0; i < length; i++) {
+      if (food.seafood[i].name == this.data.name) {
+        food.seafood[i].time = parseInt(input);
+      }
+    }
+    length = food.soy_fungus.length;
+    for (i = 0; i < length; i++) {
+      if (food.soy_fungus[i].name == this.data.name) {
+        food.soy_fungus[i].time = parseInt(input);
+      }
+    }
+    length = food.vegetable.length;
+    for (i = 0; i < length; i++) {
+      if (food.vegetable[i].name == this.data.name) {
+        food.vegetable[i].time = parseInt(input);
+      }
+    }
+
+    wx.setStorageSync("food", food);
+    console.log("modified:");
+    console.log(food);
   }
   
 })

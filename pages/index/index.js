@@ -1,6 +1,9 @@
 //获取应用实例
 const app = getApp();
 var utils = require('../../utils/ingredients.js');
+var foodList = [];
+var selectedFoodList = [];
+var selectedFoodListName = [];
 
 Page({
   data: {
@@ -57,8 +60,39 @@ Page({
         open: false,
         pages: utils.mainfood
       }
-    ]
+    ],
+
+    //searchbar
+    inputShowed: false,
+    inputVal: "",
+    foodList: foodList,
+    selectedFoodList: selectedFoodList,
+    selectedFoodListName: selectedFoodListName
   },
+
+  //search
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+
   onLoad: function () {
     var that = this;
     for(var kind in that.data.list){
@@ -97,6 +131,42 @@ Page({
       wx.setStorageSync("food", utils.food);
       //console.log(wx.getStorageSync("food"));
     }
+
+    //searchbar
+    var food = wx.getStorageSync("food");
+    console.log("hahahahha" + food.balls_wahs[0].name);
+    var length = food.balls_wahs.length;
+    var i = 0;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.balls_wahs[i]);
+    }
+    length = food.mainfood.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.mainfood[i]);
+    }
+    length = food.meat_eggs.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.meat_eggs[i]);
+    }
+    length = food.organs.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.organs[i]);
+    }
+    length = food.seafood.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.seafood[i]);
+    }
+    length = food.soy_fungus.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.soy_fungus[i]);
+    }
+    length = food.vegetable.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.vegetable[i]);
+    }
+
+    console.log("food list length: " + foodList.length);
+
   },
   onShow: function(){
     var that = this;
@@ -193,5 +263,44 @@ Page({
         duration: 2000
       });
     }
+  },
+  //searchbar
+  confirmSearch: function () {
+    selectedFoodList = [];
+    selectedFoodListName = [];
+    this.setData({
+      selectedFoodList: [],
+      selectedFoodListName: []
+    });
+
+    var length = foodList.length;
+    var i = 0;
+
+    console.log(this.data.inputVal);
+    for (i = 0; i < length; i++) {
+      if (foodList[i].name.includes(this.data.inputVal) && this.data.inputVal.length > 0) {
+        selectedFoodList.push(foodList[i]);
+        selectedFoodListName.push(foodList[i].name);
+      }
+    }
+
+    length = selectedFoodList.length;
+    for (i = 0; i < length; i++) {
+      console.log(selectedFoodList[i].name)
+    }
+
+    console.log(selectedFoodList.length)
+    this.setData({
+      selectedFoodList: selectedFoodList,
+      selectedFoodListName: selectedFoodListName
+    });
+  },
+  clearSearch: function () {
+    selectedFoodList = [];
+    selectedFoodListName = [];
+    this.setData({
+      selectedFoodList: [],
+      selectedFoodListName: []
+    });
   }
 })
