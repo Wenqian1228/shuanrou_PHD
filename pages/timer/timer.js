@@ -186,6 +186,9 @@ Page({
     if (timerList[name].started == false){
       timerList[name].timer.start(this);
       timerList[name].started = true;
+      //开始load音频
+      innerAudioContext.autoplay = false;
+      innerAudioContext.src = 'https://raw.githubusercontent.com/Wenqian1228/zwq_wx_background/master/to-the-point.mp3';
     } else if (timerList[name].started == true){
       timerList[name].timer.stop(this);
       timerList[name].started = false;
