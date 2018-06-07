@@ -1,13 +1,7 @@
 // pages/timer/timer.js
-//here are LIU hard code
 
 var timer = require('wxTimer.js');
 
-
-
-
-
-//Muzi
 var ingredient_data = require('../../utils/ingredients.js');
 var timerList = {};
 
@@ -18,11 +12,6 @@ Page({
    */
   data: {
     wxTimerList: {},
-    timers:[],
-    touchStartTime: 0,
-    touchEndTime: 0,  
-    lastTapTime: 0, 
-    //Muzi
     data:ingredient_data,
     timerList: timerList,
     timerNum: Object.keys(timerList).length
@@ -32,35 +21,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // LIU HARD CODE
-    console.log(options);
-    var seconds = options.time%60;
-    var min = options.time / 60;
-    var hour = min/60;
-    min = min % 60;
-    seconds =  ("0" + seconds).slice(-2);
-    min = ("0" + min).slice(-2);
-    hour = ("0" + hour).slice(-2);
-    var formatTime = hour +":"+ min+":"+seconds;
-
-    var newTimer = new timer({
-      beginTime: formatTime,
-      name: options.name,
-      reset: 1,
-      counting: false
-    });
-    this.data.timers[0] = newTimer;
-    this.setData({
-      timers: this.data.timers
-    });
-    console.log(this.data.timers);
-    // liu
-    showView_bxsc: (options.showView_bxsc == "false" ? false : true)
-    counting_bxsc: (options.counting_bxsc == "false" ? false : true)
-    showView_bc: (options.showView_bc == "false" ? false : true)
-    counting_bc: (options.counting_bxsc == "false" ? false : true)
-    showView_dbc: (options.showView_dbc == "false" ? false : true)
-    counting_dbc: (options.counting_bxsc == "false" ? false : true)
   },
 
   START: function(){
@@ -117,17 +77,11 @@ Page({
             showCancel:false,
 
             success: function (res) {
-                  
               if (res.confirm) { //判断用户是否点击了确定
                   confirm=true;
               }
-              
-
             }
-
-
           })
-          
         }
       })
       var myTimer = {
@@ -260,7 +214,6 @@ Page({
     })
    
   }
- 
 
 })
 
