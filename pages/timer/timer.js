@@ -58,10 +58,10 @@ Page({
     var that = this;
     //console.log("onShow function");
     //console.log(app.globalData.timer_list);
-    var arrayLength = app.globalData.timer_list.length;
+    var arrayLength = app.globalData.toAdd_timer_list.length;
 
     for (var i = 0; i < arrayLength; i++){
-      var obj = app.globalData.timer_list[i];
+      var obj = app.globalData.toAdd_timer_list[i];
       var name = obj.name;
       var time = obj.beginTime;
       var tag =obj.tag;
@@ -74,29 +74,20 @@ Page({
           innerAudioContext.play();
           wx.vibrateLong();
           
-          
           //console.log("finish");
           wx.showModal({ //使用模态框提示用户进行操作
-
             title: '菜好了',
-
             content: '您的' + name + "可以出锅了",
             showCancel:false,
-
             success: function (res) {
-                  
               if (res.confirm) { //判断用户是否点击了确定
                   confirm=true;
               }
-              
-
             }
-
-
           })
-          
         }
       })
+
       var myTimer = {
         name: name,
         time: time,
@@ -108,7 +99,7 @@ Page({
       timerList[name] = myTimer;
     }
 
-    app.globalData.timer_list = [];
+    app.globalData.toAdd_timer_list = [];
     that.setData({
       timerList: timerList,
       timerNum: Object.keys(timerList).length

@@ -251,9 +251,10 @@ Page({
     }
     //console.log(timer);
     // console.log(app.globalData.timer_list);
-    getApp().globalData.timer_list.push(timer);
     //console.log(app.globalData.timer_list);
     if(repeat==0){
+      getApp().globalData.toAdd_timer_list.push(timer);
+      getApp().globalData.timer_list.push(timer);
       //setstorage
       var that = this;
       var counting_arr = wx.getStorageSync(tag_key);

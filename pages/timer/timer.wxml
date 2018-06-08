@@ -3,8 +3,8 @@
   <text>计时器</text>
 </view>
 
-<view wx:if='{{timerNum == 0}}' style='display:flex;flex-direction:column;align-items:center;color:grey;font-size:20rpx'>
-  <text style='padding:5px'>还未添加任何菜品计时器噢!</text>
+<view wx:if='{{timerNum == 0}}' style='display:flex;flex-direction:column;align-items:center;color:ghostwhite;font-size:25rpx'>
+  <text style='padding:10px'>还未添加任何菜品计时器噢!</text>
   <text>去找找好吃的吧~</text>
 </view>
 
@@ -45,6 +45,6 @@
   </view>
 </view>
 
-<view wx:if='{{timerNum > 0}}' style='display:flex;flex-direction:column;align-items:center;color:grey;font-size:20rpx'>
-  <text style='padding:5px'>点击开始或停止，长按删除计时器</text>
+<view wx:if='{{timerNum > 0}}' style='display:flex;flex-direction:column;align-items:center;color:ghostwhite;font-size:25rpx'>
+  <text style='padding:10px'>点击开始或停止，长按删除计时器</text>
 </view>
