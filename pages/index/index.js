@@ -138,38 +138,7 @@ Page({
       //console.log(wx.getStorageSync("food"));
     }
 
-    //searchbar
-    var food = wx.getStorageSync("food");
-    //console.log("hahahahha" + food.balls_wahs[0].name);
-    var length = food.balls_wahs.length;
-    var i = 0;
-    for (i = 0; i < length; i++) {
-      foodList.push(food.balls_wahs[i]);
-    }
-    length = food.mainfood.length;
-    for (i = 0; i < length; i++) {
-      foodList.push(food.mainfood[i]);
-    }
-    length = food.meat_eggs.length;
-    for (i = 0; i < length; i++) {
-      foodList.push(food.meat_eggs[i]);
-    }
-    length = food.organs.length;
-    for (i = 0; i < length; i++) {
-      foodList.push(food.organs[i]);
-    }
-    length = food.seafood.length;
-    for (i = 0; i < length; i++) {
-      foodList.push(food.seafood[i]);
-    }
-    length = food.soy_fungus.length;
-    for (i = 0; i < length; i++) {
-      foodList.push(food.soy_fungus[i]);
-    }
-    length = food.vegetable.length;
-    for (i = 0; i < length; i++) {
-      foodList.push(food.vegetable[i]);
-    }
+    
 
     //console.log("food list length: " + foodList.length);
 
@@ -200,6 +169,42 @@ Page({
         }
       }
       
+    }
+
+    //searchbar
+    foodList=[];
+    selectedFoodList=[];
+    selectedFoodListName=[];
+    var food = wx.getStorageSync("food");
+    //console.log("hahahahha" + food.balls_wahs[0].name);
+    var length = food.balls_wahs.length;
+    var i = 0;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.balls_wahs[i]);
+    }
+    length = food.mainfood.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.mainfood[i]);
+    }
+    length = food.meat_eggs.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.meat_eggs[i]);
+    }
+    length = food.organs.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.organs[i]);
+    }
+    length = food.seafood.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.seafood[i]);
+    }
+    length = food.soy_fungus.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.soy_fungus[i]);
+    }
+    length = food.vegetable.length;
+    for (i = 0; i < length; i++) {
+      foodList.push(food.vegetable[i]);
     }
   },
   kindToggle: function (e) {
