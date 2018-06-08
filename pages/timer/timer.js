@@ -194,6 +194,7 @@ Page({
 
  
   deleteTimer: function(event){
+    var app = getApp();
     var that = this;
     var name = event.currentTarget.dataset.name;
     wx.showModal({ //使用模态框提示用户进行操作
@@ -213,6 +214,15 @@ Page({
             timerList: timerList,
             timerNum: Object.keys(timerList).length
           })
+          //删除时更新timer_list
+          var length = app.globalData.timer_list.length;
+          var i=0;
+          for(i=0;i<length;i++){
+            if (app.globalData.timer_list[i].name==name){
+              app.globalData.timer_list.splice(i,1);
+              break;
+            }
+          }
 
         }
 

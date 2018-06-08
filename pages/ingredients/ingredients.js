@@ -124,6 +124,7 @@ Page({
       //console.log(timer);
       //console.log(app.globalData.timer_list);
       getApp().globalData.timer_list.push(timer);
+      getApp().globalData.toAdd_timer_list.push(timer);
       //console.log(app.globalData.timer_list);
 
       //setstorage
