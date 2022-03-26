@@ -4,4 +4,4 @@
 
 因为用户太少，涮肉博士早已被微信下架，但是那是一段值得被记录的欢乐时光，我们几人每天在伍宜孙书院聊天+打Lost castle的间隙，写出来的富有乐趣的涮火锅计时器。
 
-万幸demo视频还留存了下来：https://v.qq.com/x/page/d06833n0ft3.html
+Well.. it could be worse, 还好demo视频还留存了下来：https://v.qq.com/x/page/d06833n0ft3.html
